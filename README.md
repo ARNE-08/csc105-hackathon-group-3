@@ -22,8 +22,10 @@ git pull origin main
 
 #### to publish code on your current branch(not merge)
 #### No git push
-`git add .`
-`git commit -m ""`
+```
+git add .
+git commit -m ""
+```
 
 ## Command for Merging
 ### Don't forget to push your code to your own branch before merging
@@ -36,9 +38,11 @@ git pull origin main
 
 ##### 3. push your code,
 ### use git commit without -m
-`git add .`
-`git commit`
-`git push`
+```
+git add .
+git commit
+git push
+```
 
 ## Command for Deleting branch
 #### to "delete branch "Tong"
