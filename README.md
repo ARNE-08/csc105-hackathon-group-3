@@ -1,10 +1,10 @@
 # csc105-hackathon-group-3
 
 ## Command for branching
-to make a branch name "Tong" and switch to that branch
+#### to make a branch name "Tong" and switch to that branch
 `git checkout -b Tong`
 
-##### to switch to the branch "main" without creating new branch
+#### to switch to the branch "main" without creating new branch
 `git checkout main`
 
 ##### to check name of all branches and what brand we're in
