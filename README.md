@@ -14,9 +14,9 @@ git branch -a
 git status
 
 ## to publish code on your current branch(not merge)
+## No git push
 git add .
 git commit -m ""
-git push
 
 ## to "delete branch "Tong"
 ## 1. it will ask if you have not merge to the main branch
