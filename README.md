@@ -1,5 +1,12 @@
 # csc105-hackathon-group-3
 
+
+## Always make your local-main up to date
+```
+git checkout main
+git pull origin main
+```
+
 ## Command for branching
 #### to make a branch name "Tong" and switch to that branch
 `git checkout -b Tong`
