@@ -18,13 +18,6 @@
 `git add .`
 `git commit -m ""`
 
-#### to "delete branch "Tong"
-##### 1. it will ask if you have not merge to the main branch
-`git branch -d Tong`
-##### or 2. force to delete without merging
-`git branch -D Tong`
-
-
 ## Command for Merging
 ### Don't forget to push your code to your own branch before merging
 
@@ -39,3 +32,10 @@
 `git add .`
 `git commit`
 `git push`
+
+## Command for Deleting branch
+#### to "delete branch "Tong"
+##### 1. it will ask if you have not merge to the main branch
+`git branch -d Tong`
+##### or 2. force to delete without merging
+`git branch -D Tong`
