@@ -7,21 +7,21 @@
 #### to switch to the branch "main" without creating new branch
 `git checkout main`
 
-##### to check name of all branches and what brand we're in
+#### to check name of all branches and what brand we're in
 `git branch -a`
 
-##### to check status whether our filr is detected or not
+#### to check status whether our filr is detected or not
 `git status`
 
-##### to publish code on your current branch(not merge)
-##### No git push
+#### to publish code on your current branch(not merge)
+#### No git push
 `git add .`
 `git commit -m ""`
 
-##### to "delete branch "Tong"
-###### 1. it will ask if you have not merge to the main branch
+#### to "delete branch "Tong"
+##### 1. it will ask if you have not merge to the main branch
 `git branch -d Tong`
-###### or 2. force to delete without merging
+##### or 2. force to delete without merging
 `git branch -D Tong`
 
 
