@@ -6,7 +6,7 @@ module.exports = (req, res) => {
     var decoded = jwt.verify(token, "ZJGX1QL7ri6BGJWj3t");
     console.log(decoded);
 
-    connection.query("SELECT fullname, lastname, company_organization, email, tel, profile_picture, company_url FROM users WHERE id = ?",
+    connection.query("SELECT fullname, lastname, company_organization, email, tel, profile_picture FROM users WHERE id = ?",
         [decoded.userId], (err, rows) => {
             // Check if cannot find the data in the database then return the error
             if (err) {
