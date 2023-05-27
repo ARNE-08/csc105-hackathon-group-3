@@ -10,10 +10,13 @@ import MultipleSelect from './components/MultipleSelect'
 import Error from './pages/Error'
 import SnackBarMessage from '../src/share/SnackBarMessage'
 import Register from './components/Register'
+import Navbar from './components/Navbar'
+import Login from './components/Login'
 
 function App() {
 	const [status, setStatus] = useState('');
-	const [user, setUser] = useState([]);
+	const [user, setUser] = useState(null);
+	const [isAuthorize, setIsAuthorize] = useState(false)
 	const [appear, setAppear] = useState(false);
 	const generatekey = () => {
 		return Math.random();
@@ -26,6 +29,8 @@ function App() {
 			status,
 			setUser,
 			setStatus,
+			isAuthorize,
+			setIsAuthorize
 		};
 	}, [user]);
 
@@ -51,6 +56,8 @@ function App() {
 					<CalEvent />
 					<Register />
 					<Profile />
+					<Navbar />
+					<Login />
 				</div>
 			) : null}
 		</GlobalContext.Provider >
