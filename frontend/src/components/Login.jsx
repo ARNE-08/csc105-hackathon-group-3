@@ -15,8 +15,8 @@ function Login({ setIsLogin }) {
   const { user, setUser } = useContext(GlobalContext);
   const { status, setStatus } = useContext(GlobalContext);
 
-  const [username, setusername] = useState('')
-  const [usernameError, setusernameError] = useState('')
+  const [email, setEmail] = useState('')
+  const [emailError, setEmailError] = useState('')
 
   const [password, setPassword] = useState('')
   const [passwordError, setPasswordError] = useState('')
@@ -27,9 +27,10 @@ function Login({ setIsLogin }) {
     if (!validateForm()) return;
     try {
       const response = await Axios.post('/login', {
-        username,
+        email,
         password,
       });
+      console.log(response.data.success)
       // console.log(response.data.success)
       if (response.data.success) {
         setUser(true);
@@ -37,11 +38,18 @@ function Login({ setIsLogin }) {
           msg: 'Login successful',
           severity: 'success'
         });
-        navigate('/home');
+        navigate('/');
         // navigateToHome();
       }
+      else {
+        setPassword('')
+        setStatus({
+          msg: 'Incorrect email or password',
+          severity: 'error'
+        });
+      }
     } catch (e) {
-      setusername('');
+      setEmail('');
       setPassword('');
       if (e instanceof AxiosError) {
         if (e.response)
@@ -59,8 +67,12 @@ function Login({ setIsLogin }) {
 
   const validateForm = () => {
     let isValid = true;
-    if (!username) {
-      setusernameError('Username is required');
+    if (!email) {
+      setEmailError("Email is required");
+      isValid = false;
+    }
+    if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(email)) {
+      setEmailError("Invalid email format");
       isValid = false;
     }
     if (!password) {
@@ -128,11 +140,11 @@ function Login({ setIsLogin }) {
             <TextField
               // class="InputForm mail"
               id="input-with-sx"
-              label="Username"
-              value={username}
-              onChange={(e) => setusername(e.target.value)}
-              error={usernameError !== ''}
-              helperText={usernameError}
+              label="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              error={emailError !== ''}
+              helperText={emailError}
 
               sx={{ width: '250px', position: 'relative', bottom: '50px' }}
               variant="standard"
@@ -162,7 +174,7 @@ function Login({ setIsLogin }) {
           </Box>
 
           <Box class='noacc' onClick={handleClick}>
-            <Typography variant="p" class="RegisText">
+            <Typography variant="p" class="RegisText" sx={{fontFamily: "'Poppins', sans-serif", textDecoration: "underline"}}>
               Don't have an account?
             </Typography>
           </Box>
@@ -195,11 +207,11 @@ function Login({ setIsLogin }) {
             <TextField
               // class="InputForm mail"
               id="input-with-sx"
-              label="Username"
-              value={username}
-              onChange={(e) => setusername(e.target.value)}
-              error={usernameError !== ''}
-              helperText={usernameError}
+              label="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              error={emailError !== ''}
+              helperText={emailError}
               // value={email}
               sx={{ width: '200px', position: 'relative', bottom: '60px' }}
               variant="standard"
@@ -229,7 +241,7 @@ function Login({ setIsLogin }) {
           </Box>
 
           <Box class='noacc' onClick={handleClick}>
-            <Typography variant="p" class="RegisText">
+            <Typography variant="p" class="RegisText" sx={{fontFamily: "'Poppins', sans-serif", textDecoration: "underline"}}>
               Don't have an account?
             </Typography>
           </Box>
