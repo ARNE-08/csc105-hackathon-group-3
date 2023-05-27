@@ -36,17 +36,6 @@ app.get("/", (req, res) => {
 
 //marked
 // app.post("/login", require("./route/Login"));
-// app.post("/regis", require("./route/Register"));
-// app.get("/getAllTodos", require("./route/GetTodos"));
-// app.post("/addTodo", require("./route/AddTodo"));
-// app.patch("/editTodo", require("./route/EditTodo"));
-// app.delete("/deleteTodo", require("./route/DeleteTodo"));
-// app.delete("/deleteAll", require("./route/DeleteAll"));
-// app.patch("/completeTodo", require("./route/CompleteTodo"));
-// app.patch("/completeAll", require("./route/Complete"));
-// app.get("/getUser", require("./route/GetUser"));
-// app.get("/getProfilePic", require("./route/GetProfile"));
-// app.patch("/changeProfilePic", require("./route/ChangeProfile"));
 
 
 app.listen(port, () => {
