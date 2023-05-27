@@ -7,6 +7,7 @@ import MultipleSelect from './components/MultipleSelect'
 import CalEvents from './pages/CalEvents'
 import Error from './pages/Error'
 
+
 function App() {
 	const [status, setStatus] = useState('');
 	const [user, setUser] = useState(false);
