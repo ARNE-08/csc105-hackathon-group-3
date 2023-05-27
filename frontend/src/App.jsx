@@ -3,7 +3,6 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import GlobalContext from "../src/share/GlobalContext";
 import Home from "./pages/Home";
-import CalEvents from "./pages/CalEvents";
 import Auth from "./pages/Auth";
 import Profile from "./pages/Profile";
 
@@ -27,7 +26,6 @@ function App() {
     <GlobalContext.Provider value={globalContextValue}>
       <Routes>
         <Route exect path="/" element={<Home />} />
-        <Route path="/cal-events" element={<CalEvents />} />
         <Route path="/auth" element={<Auth />} />
 		<Route path="/profile" element={<Profile />} />
       </Routes>
