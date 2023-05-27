@@ -1,0 +1,41 @@
+.profileBG {
+    background-color: #E4D1B9;
+}
+.ProfilePagePicture {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    width: 400px;
+    border-radius: 50%;
+    margin: auto;
+    margin-top: 70px;
+}
+
+.ProfileBorder {
+    border-bottom: 2px solid #A97155;
+    padding: 0px 20px 40px 20px;
+}
+
+.UserInform {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    width: 100%;
+
+    background-color: #E4D1B9;
+    height: 100%;
+}
+
+.UserInformBox {
+    background: #A97155;
+    padding: 20px;
+
+    margin-top: 40px;
+    border-radius: 20px;
+}
+
+.usertext {
+    font-family: 'Poppins', sans-serif;
+}

@@ -50,6 +50,7 @@ function App() {
 					<MultipleSelect />
 					<CalEvent />
 					<Register />
+					<Profile />
 				</div>
 			) : null}
 		</GlobalContext.Provider >
