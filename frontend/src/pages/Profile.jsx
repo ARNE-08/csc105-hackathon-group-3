@@ -248,29 +248,29 @@ function Profile() {
                 <CardProfile />
               </Box>
 
-              <Box
-                sx={{
-                  position: "absolute",
-                  bottom: "10px",
-                  right: "10px",
-                }}
+            <Box
+              sx={{
+                position: "absolute",
+                bottom: "10px",
+                right: "10px",
+              }}
+            >
+              <Button
+                variant="outlined"
+                color="primary"
+                sx={{ backgroundColor: "white", right: "10px" }}
               >
-                <Button
-                  variant="outlined"
-                  color="primary"
-                  sx={{ backgroundColor: "white", right: "10px" }}
-                >
-                  Edit
-                </Button>
-                <Button
-                  variant="outlined"
-                  color="secondary"
-                  sx={{ backgroundColor: "white" }}
-                >
-                  Delete
-                </Button>
-              </Box>
+                Edit
+              </Button>
+              <Button
+                variant="outlined"
+                color="secondary"
+                sx={{ backgroundColor: "white" }}
+              >
+                Delete
+              </Button>
             </Box>
+          </Box>
 
             <Box
               sx={{
@@ -288,31 +288,31 @@ function Profile() {
                 <CardProfile />
               </Box>
 
-              <Box
-                sx={{
-                  position: "absolute",
-                  bottom: "10px",
-                  right: "10px",
-                }}
+            <Box
+              sx={{
+                position: "absolute",
+                bottom: "10px",
+                right: "10px",
+              }}
+            >
+              <Button
+                variant="outlined"
+                color="primary"
+                sx={{ backgroundColor: "white", right: "10px" }}
               >
-                <Button
-                  variant="outlined"
-                  color="primary"
-                  sx={{ backgroundColor: "white", right: "10px" }}
-                >
-                  Edit
-                </Button>
-                <Button
-                  variant="outlined"
-                  color="secondary"
-                  sx={{ backgroundColor: "white" }}
-                >
-                  Delete
-                </Button>
-              </Box>
+                Edit
+              </Button>
+              <Button
+                variant="outlined"
+                color="secondary"
+                sx={{ backgroundColor: "white" }}
+              >
+                Delete
+              </Button>
             </Box>
-          </Grid>
+          </Box>
         </Grid>
+      </Grid>
       </Box>
     </div>
   );
