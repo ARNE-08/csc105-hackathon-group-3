@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import { Box, Grid, Typography, Button } from "@mui/material";
 import imageSrc from "../assets/profilepic1.jpg";
 import CardProfile from "../components/CardProfile";
-import "./Profile.css";
+
 
 function Profile() {
   return (
@@ -181,20 +181,7 @@ function Profile() {
                 right: "10px",
               }}
             >
-              <Button
-                variant="outlined"
-                color="primary"
-                sx={{ backgroundColor: "white", right: "10px" }}
-              >
-                Edit
-              </Button>
-              <Button
-                variant="outlined"
-                color="secondary"
-                sx={{ backgroundColor: "white" }}
-              >
-                Delete
-              </Button>
+              
             </Box>
           </Box>
 
@@ -221,20 +208,7 @@ function Profile() {
                 right: "10px",
               }}
             >
-              <Button
-                variant="outlined"
-                color="primary"
-                sx={{ backgroundColor: "white", right: "10px" }}
-              >
-                Edit
-              </Button>
-              <Button
-                variant="outlined"
-                color="secondary"
-                sx={{ backgroundColor: "white" }}
-              >
-                Delete
-              </Button>
+              
             </Box>
           </Box>
         </Grid>
