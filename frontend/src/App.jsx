@@ -3,9 +3,10 @@ import './App.css'
 import { Route, Routes, } from 'react-router-dom'
 import GlobalContext from "../src/share/GlobalContext"
 import Home from './pages/Home'
+import CalEvent from './pages/CalEvent'
 import MultipleSelect from './components/MultipleSelect'
-import CalEvent from './pages/CalEvents'
 import Error from './pages/Error'
+import SnackBarMessage from '../src/share/SnackBarMessage'
 
 
 function App() {
@@ -31,7 +32,7 @@ function App() {
 		<GlobalContext.Provider value={globalContextValue}>
 			<Routes>
 				<Route exect path="/" element={<Home />} />
-				<Route path="/cal-events" element={<CalEvents />} />
+				<Route path="/cal-event" element={<CalEvent />} />
 				<Route path="*" element={<Error />} />
 			</Routes>
 
