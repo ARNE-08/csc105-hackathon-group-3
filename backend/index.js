@@ -39,6 +39,7 @@ app.post("/login", require("./route/Login"));
 app.post("/register", require("./route/Register"));
 //Get information for profile page
 app.get("/profile", require("./route/GetProfile"));
+app.get("/userEvent", require("./route/GetUserEvent"));
 //Get step for home page
 app.get("/step", require("./route/GetStep"));
 //CRUD event
