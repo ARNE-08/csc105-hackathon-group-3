@@ -10,7 +10,7 @@ function CardProfile({ name, location, contact, description, openAt, closeAt, da
 	return (
 		<>
 			<div style={{ maxHeight: 300, overflow: 'auto' }}>
-				<Card sx={{ maxWidth: 250 }}>
+				<Card sx={{ maxWidth: 800 }}>
 					<CardMedia sx={{ height: 150 }} image={banner_url} title="banner" />
 					<CardContent sx={{ padding: "20px" }} >
 						<Typography gutterBottom variant="h6" component="div" sx={{fontWeight:"bold"}} >
@@ -47,7 +47,7 @@ function CardProfile({ name, location, contact, description, openAt, closeAt, da
 				</Card>
 
 			</div>
-			<Card sx={{ maxWidth: 250, height: "50px", borderRadius: "0px", backgroundColor: "grey", display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+			<Card sx={{ maxWidth: 800, height: "50px", borderRadius: "0px", backgroundColor: "#2C2639", display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
 				<Typography sx={{fontSize: "15px", color: "white", fontWeight: "bold"}} >{date_start}  |  {date_end} </Typography>
 				<Typography sx={{fontSize: "15px", color: "white", fontWeight: "bold"}} >{openAt}  -  {closeAt} </Typography>
 			</Card>
