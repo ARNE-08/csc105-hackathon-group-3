@@ -1,6 +1,4 @@
-.profileBG {
-    background-color: #E4D1B9;
-}
+
 .ProfilePagePicture {
     position: relative;
     background-size: cover;
@@ -12,8 +10,27 @@
     margin-top: 70px;
 }
 
+@media screen and (max-width: 1100px) {
+    .ProfilePagePicture {
+        height: 300px;
+        width: 300px;
+    }
+}
+@media screen and (max-width: 910px) {
+    .ProfilePagePicture {
+        height: 250px;
+        width: 250px;
+    }
+}
+@media screen and (max-width: 760px) {
+    .ProfilePagePicture {
+        height: 225px;
+        width: 225px;
+    }
+}
+
 .ProfileBorder {
-    border-bottom: 2px solid #A97155;
+    border-bottom: 2px solid #2C2639;
     padding: 0px 20px 40px 20px;
 }
 
@@ -23,19 +40,35 @@
     /* justify-content: center; */
     align-items: center;
     width: 100%;
-
-    background-color: #E4D1B9;
+    margin-bottom: 50px;
+    
     height: 100%;
 }
-
+@media screen and (max-width: 600px) {
+    .UserInform {
+        margin-left: -40px;
+    }
+}
+@media screen and (max-height: 700px) {
+    .UserInform {
+        margin-Bottom: 200px;
+    }
+}
 .UserInformBox {
-    background: #A97155;
+    background: #2C2639;
     padding: 20px;
 
     margin-top: 40px;
     border-radius: 20px;
 }
 
+@media screen and (max-width: 1020px) {
+    .UserInformBox {
+        width: 90%;
+    }
+}
+
 .usertext {
     font-family: 'Poppins', sans-serif;
 }
+
