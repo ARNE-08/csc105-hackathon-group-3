@@ -29,7 +29,7 @@ function CalEvent() {
 	const [category, setCategory] = useState('')
 	const [categoryError, setCategoryError] = useState('')
 	const [eventUrl, setEventUrl] = useState('')
-	const [bannerUrl, setBAnnerUrl] = useState('')
+	const [bannerUrl, setBannerUrl] = useState('')
 
 	//! for Add new
 	const [showFirstBox, setShowFirstBox] = useState(true);
@@ -59,9 +59,10 @@ function CalEvent() {
 
 	const cardContextValue = useMemo(() => {
 		return {
-		  name, setName, location, setLocation, contact, setContact, description, setDescription,
+		  name, setName, nameError, location, setLocation, locationError, contact, setContact, contactError,
+		  description, setDescription, descriptionError,
 		  openAt, setOpenAt, closeAt, setCloseAt, dateStart, setDateStart, dateEnd, setDateEnd,
-		  category, setCategory, eventUrl, setEventUrl, bannerUrl, setBAnnerUrl, handleSecondBoxSubmit
+		  category, setCategory, categoryError, eventUrl, setEventUrl, bannerUrl, setBannerUrl, handleSecondBoxSubmit
 		};
 	  }, []);
 
@@ -115,9 +116,6 @@ function CalEvent() {
 	const handleChange = (event, newValue) => {
 		setValue(newValue);
 	};
-
-
-
 
 
 	return (
