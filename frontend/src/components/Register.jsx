@@ -165,26 +165,17 @@ function Register({ setIsLogin }) {
         justifyContent="center"
         alignItems="center"
       // class="Form"
+      xs={12} sm={6}
       >
-        {/* <Grid item xs={12} display={{ xs: "none", sm: "block" }}>
-        <Typography sx={{color: "white", fontFamily: "'Poppins', sans serif", fontSize: "3em", fontWeight: "700"}}>
-          RecycleJourney
-        </Typography>
-      </Grid>
-      <Grid item xs={12} display={{ xs: "block", sm: "none" }}>
-      <Typography sx={{color: "white", fontFamily: "'Poppins', sans serif", fontSize: "3em", fontWeight: "700"}}>
-          RecycleJourney
-        </Typography>
-      </Grid> */}
 
         <Grid
           item
-          xs={12}
+          xs={12} sm={6}
           justifyContent="center"
           alignItems="center"
-          display={{ xs: "none", sm: "block" }}
+          display={{ xs: "block", sm: "block" }}
         >
-          <Box class="RegisBox">
+          <Box class="RegisBox" sx={{backgroundColor: 'red'}}>
             <Box class="closeregis">
               <nav>
                 <NavLink replace to="/" className="inactive-link">
@@ -348,129 +339,6 @@ function Register({ setIsLogin }) {
           </Box>
         </Grid>
 
-        {/* <Grid
-        item
-        xs={12}
-        justifyContent="center"
-        alignItems="center"
-        display={{ xs: "block", sm: "none" }}
-      >
-        <Box class="RegisBox1">
-          <Box class="closeregis1">
-            <nav>
-              <NavLink replace to="/" className="inactive-link">
-                {({ isActive }) =>
-                  isActive ? (
-                    <p className="active-link">Home</p>
-                  ) : (
-                    <button class="closeButton">
-                      <Box class="closeIcon">
-                        <ArrowBackRoundedIcon />
-                      </Box>
-                    </button>
-                  )
-                }
-              </NavLink>
-            </nav>
-          </Box>
-
-          <Box sx={{ display: "flex", alignItems: "flex-end" }}>
-            <Person2OutlinedIcon
-              sx={{
-                position: "relative",
-                bottom: "70px",
-                color: "action.active",
-                mr: 1,
-                my: 0.5,
-              }}
-            />
-            <TextField
-              // class="InputForm pass"
-              id="input-with-sx"
-              label="Username"
-              type={"text"}
-              // value={email}
-              sx={{ width: "200px", position: "relative", bottom: "75px" }}
-              variant="standard"
-              required
-            />
-          </Box>
-
-          <Box sx={{ display: "flex", alignItems: "flex-end" }}>
-            <MailOutlineRoundedIcon
-              sx={{
-                position: "relative",
-                bottom: "40px",
-                color: "action.active",
-                mr: 1,
-                my: 0.5,
-              }}
-            />
-            <TextField
-              // class="InputForm mail"
-              id="input-with-sx"
-              label="Email"
-              type={"email"}
-              // value={email}
-              sx={{ width: "200px", position: "relative", bottom: "45px" }}
-              variant="standard"
-              required
-            />
-          </Box>
-
-          <Box sx={{ display: "flex", alignItems: "flex-end" }}>
-            <LockOutlinedIcon
-              sx={{
-                position: "relative",
-                bottom: "10px",
-                color: "action.active",
-                mr: 1,
-                my: 0.5,
-              }}
-            />
-            <TextField
-              // class="InputForm pass"
-              id="input-with-sx"
-              label="Password"
-              type={"password"}
-              // value={email}
-              sx={{ width: "200px", position: "relative", bottom: "15px" }}
-              variant="standard"
-              required
-            />
-          </Box>
-
-          <FormGroup sx={{ position: "relative", bottom: "-20px" }}>
-            <FormControlLabel
-              required
-              control={
-                <Checkbox
-                  id="privacyPolicyCheckbox"
-                  sx={{
-                    color: "action.active",
-                    "&.Mui-checked": {
-                      color: "#7560A2",
-                    },
-                  }}
-                />
-              }
-              label="Agree to term and policies"
-            />
-          </FormGroup>
-
-          <Box class="Regisnav">
-            <button class="loginBut" onClick={handleSubmit}>
-              Signup
-            </button>
-          </Box>
-
-          <Box class="noacc directtologin" onClick={handleClick}>
-            <Typography variant="p" class="RegisText">
-              Already have an account?
-            </Typography>
-          </Box>
-        </Box>
-      </Grid> */}
       </Grid>
       <Modal open={open} onClose={handleCloseModal}>
         <Box sx={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', bgcolor: 'background.paper', p: 4, width: 400, borderRadius: "20px" }}>
