@@ -26,7 +26,7 @@ const Navbar = () => {
   return (
     <AppBar
       position="static"
-      sx={{ backgroundColor: "transparent", boxShadow: "none" }}
+      sx={{ backgroundColor: "#2C2639", boxShadow: "none" }}
     >
       <Toolbar sx={{ backgroundColor: "transparent" }}>
       {/* <Box
@@ -45,7 +45,7 @@ const Navbar = () => {
           sx={{ flexGrow: 1, fontWeight: "600" }}
           id="LogoName"
         >
-         
+
           RecycleJourney
         </Typography>
         {isTabletMobile ? (
