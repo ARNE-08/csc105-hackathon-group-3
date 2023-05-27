@@ -39,6 +39,8 @@ app.post("/login", require("./route/Login"));
 app.post("/register", require("./route/Register"));
 //Get information for profile page
 app.get("/profile", require("./route/GetProfile"));
+//Get step for home page
+app.get("/step", require("./route/GetStep"));
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
