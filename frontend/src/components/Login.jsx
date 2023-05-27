@@ -14,6 +14,7 @@ import Axios from "../share/AxiosInstance";
 function Login({ setIsLogin }) {
   const { user, setUser } = useContext(GlobalContext);
   const { status, setStatus } = useContext(GlobalContext);
+  const { isAuthorize, setIsAuthorize } = useContext(GlobalContext)
 
   const [email, setEmail] = useState('')
   const [emailError, setEmailError] = useState('')
@@ -33,7 +34,10 @@ function Login({ setIsLogin }) {
       console.log(response.data.success)
       // console.log(response.data.success)
       if (response.data.success) {
-        setUser(true);
+        setUser(response.data.data);
+        setIsAuthorize(true)
+        // console.log(user)
+        // console.log(response.data.data)
         setStatus({
           msg: 'Login successful',
           severity: 'success'

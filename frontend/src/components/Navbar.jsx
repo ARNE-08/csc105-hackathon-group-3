@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import {
   AppBar,
@@ -14,14 +14,27 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import "./Navbar.css";
 import Logo from "../assets/RecycleJourney2.svg";
+import GlobalContext from "../share/GlobalContext";
+import Cookies from "js-cookie";
 
 const Navbar = ({ isAuthenticated, accountName }) => {
   const isTabletMobile = useMediaQuery("(max-width: 1075px)");
   const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
 
+  const { user, setUser } = useContext(GlobalContext)
+  const { isAuthorize, setIsAuthorize } = useContext(GlobalContext)
+
+  console.log(user)
+  console.log(isAuthorize)
+
   const handleDrawerToggle = () => {
     setIsDrawerOpen(!isDrawerOpen);
   };
+
+  const handleLogout = () => {
+    Cookies.remove('userToken');
+    // setIsAuthorize(false)
+  }
 
   return (
     <AppBar
@@ -94,16 +107,33 @@ const Navbar = ({ isAuthenticated, accountName }) => {
                 >
                   Calculate / Events
                 </Button>
-                <Button
-                  id="button3D"
-                  component={Link}
-                  to="/sign-in"
-                  color="inherit"
-                  onClick={handleDrawerToggle}
-                  sx={{ width: "100%" }} // Set the width to 100%
-                >
-                  {isAuthenticated ? accountName : "Sign In"}
-                </Button>
+                {isAuthorize ? (
+                  <div>
+                    <Typography>{user}</Typography>
+                    <Button
+                      id="button3"
+                      // component={Link}
+                      // to="/"
+                      color="inherit"
+                      onClick={handleLogout}
+                      sx={{ width: "100%" }}
+                    >
+                      Log out
+                    </Button>
+                  </div>
+                ) : (
+                  <Button
+                    id="button3"
+                    component={Link}
+                    to="/auth"
+                    color="inherit"
+                    onClick={handleDrawerToggle}
+                    sx={{ width: "100%" }}
+                  >
+                    Sign in
+                  </Button>
+                )}
+
               </div>
             </Drawer>
           </>
@@ -120,13 +150,36 @@ const Navbar = ({ isAuthenticated, accountName }) => {
             >
               Calculate / Events
             </Button>
-            <Button id="button3" component={Link} to="/auth" color="inherit">
-              {isAuthenticated ? accountName : "Sign In"}
-            </Button>
+            {isAuthorize ? (
+              <div>
+                <Typography>{user}</Typography>
+                <Button
+                  id="button3"
+                  // component={Link}
+                  // to="/"
+                  color="inherit"
+                  onClick={handleLogout()}
+                  sx={{ width: "100%" }}
+                >
+                  Log out
+                </Button>
+              </div>
+            ) : (
+              <Button
+                id="button3"
+                component={Link}
+                to="/auth"
+                color="inherit"
+                onClick={(e) => {setIsAuthorize(false), handleLogout}}
+                sx={{ width: "100%" }}
+              >
+                Sign in
+              </Button>
+            )}
           </div>
         )}
       </Toolbar>
-    </AppBar>
+    </AppBar >
   );
 };
 
