@@ -18,13 +18,13 @@ app.use(express.json());
 app.use(bodyParser.json({ type: "application/json" }));
 app.use(cookieParser());
 
-// const connection = mysql.createConnection({
-//     host: "server2.bsthun.com",
-//     port: "6105",
-//     user: "lab_1ixvld",
-//     password: "oRFs2kOQYisEMVo5",
-//     database: "lab_blank01_1i3nrsg",
-// });
+const connection = mysql.createConnection({
+    host: "db.cshack.site",
+    port: "3306",
+    user: "group03",
+    password: "207215217",
+    database: "MariaDB",
+});
 
 connection.connect();
 global.connection = connection;
