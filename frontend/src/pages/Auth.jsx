@@ -22,7 +22,7 @@ function Auth() {
             {isLogin ? (
                 <Login setIsLogin={setIsLogin} />
             ) : (
-                <Register setIsLogin={setIsLogin} setStatus={setStatus}/>
+                <Register setIsLogin={setIsLogin}/>
             )}
             {/* {status ? (
                 <SnackBarMessage key={generatekey()} open={status.open} severity={status.severity} message={status.msg} />
