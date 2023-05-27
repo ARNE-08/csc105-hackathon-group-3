@@ -88,7 +88,7 @@ const Navbar = () => {
                 <Button
                   id="button2D"
                   component={Link}
-                  to="/cal-events"
+                  to="/cal-event"
                   color="inherit"
                   onClick={handleDrawerToggle}
                   sx={{ width: "100%" }} // Set the width to 100%
@@ -116,12 +116,12 @@ const Navbar = () => {
             <Button
               id="button2"
               component={Link}
-              to="/cal-events"
+              to="/cal-event"
               color="inherit"
             >
               Calculate / Events
             </Button>
-            <Button id="button3" component={Link} to="/sign-in" color="inherit">
+            <Button id="button3" component={Link} to="/auth" color="inherit">
               Sign In
             </Button>
           </div>

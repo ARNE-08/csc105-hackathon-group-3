@@ -3,9 +3,13 @@ import './App.css'
 import { Route, Routes, } from 'react-router-dom'
 import GlobalContext from "../src/share/GlobalContext"
 import Home from './pages/Home'
+import CalEvent from './pages/CalEvent'
+import Auth from './pages/Auth'
+import Profile from './pages/Profile'
 import MultipleSelect from './components/MultipleSelect'
-import CalEvents from './pages/CalEvents'
 import Error from './pages/Error'
+import SnackBarMessage from '../src/share/SnackBarMessage'
+
 
 function App() {
 	const [status, setStatus] = useState('');
@@ -30,7 +34,9 @@ function App() {
 		<GlobalContext.Provider value={globalContextValue}>
 			<Routes>
 				<Route exect path="/" element={<Home />} />
-				<Route path="/cal-events" element={<CalEvents />} />
+				<Route path="/cal-event" element={<CalEvent />} />
+				<Route path="/auth" element={<Auth />} />
+				<Route path="/profile" element={<Profile />} />
 				<Route path="*" element={<Error />} />
 			</Routes>
 
@@ -42,7 +48,7 @@ function App() {
 				<div>
 					<Home />
 					<MultipleSelect />
-					<CalEvents />
+					<CalEvent />
 				</div>
 			) : null}
 		</GlobalContext.Provider >
