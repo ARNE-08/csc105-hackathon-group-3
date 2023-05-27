@@ -34,9 +34,11 @@ app.get("/", (req, res) => {
     res.send("Hello World!");
 });
 
-//marked
+//Login and Register
 app.post("/login", require("./route/Login"));
 app.post("/register", require("./route/Register"));
+//Get information for profile page
+app.get("/profile", require("./route/GetProfile"));
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
