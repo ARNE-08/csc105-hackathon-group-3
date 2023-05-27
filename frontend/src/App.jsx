@@ -5,6 +5,7 @@ import GlobalContext from "../src/share/GlobalContext"
 import Home from './pages/Home'
 import CalEvents from './pages/CalEvents'
 
+
 function App() {
 	const [status, setStatus] = useState('');
 	const [user, setUser] = useState(false);
@@ -28,6 +29,7 @@ function App() {
 			<Routes>
 				<Route exect path="/" element={<Home />} />
 				<Route path="/cal-events" element={<CalEvents />} />
+
 			</Routes>
 
 			{status ? (
