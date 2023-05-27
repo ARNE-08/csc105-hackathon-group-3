@@ -15,7 +15,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import "./Navbar.css";
 import Logo from "../assets/RecycleJourney2.svg";
 
-const Navbar = () => {
+const Navbar = ({ isAuthenticated, accountName }) => {
   const isTabletMobile = useMediaQuery("(max-width: 1075px)");
   const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
 
@@ -29,16 +29,16 @@ const Navbar = () => {
       sx={{ backgroundColor: "#2C2639", boxShadow: "none" }}
     >
       <Toolbar sx={{ backgroundColor: "transparent" }}>
-      {/* <Box
-            component="img"
-            sx={{
-              width: 306,
-              marginTop: "150px",
-              display: { xs: "inline-block", md: "none" },
-            }}
-            alt="Logo"
-            src="../assets/Logo.png"
-          /> */}
+        {/* <Box
+          component="img"
+          sx={{
+            width: 306,
+            marginTop: "150px",
+            display: { xs: "inline-block", md: "none" },
+          }}
+          alt="Logo"
+          src="../assets/Logo.png"
+        /> */}
         <Typography
           variant="h6"
           component="div"
@@ -103,7 +103,7 @@ const Navbar = () => {
                   onClick={handleDrawerToggle}
                   sx={{ width: "100%" }} // Set the width to 100%
                 >
-                  Sign In
+                  {isAuthenticated ? accountName : "Sign In"}
                 </Button>
               </div>
             </Drawer>
@@ -122,7 +122,7 @@ const Navbar = () => {
               Calculate / Events
             </Button>
             <Button id="button3" component={Link} to="/auth" color="inherit">
-              Sign In
+              {isAuthenticated ? accountName : "Sign In"}
             </Button>
           </div>
         )}
