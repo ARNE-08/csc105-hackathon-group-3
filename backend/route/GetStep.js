@@ -1,5 +1,5 @@
 module.exports = (req, res) => {
-    const { category } = req.body;
+    const { category } = req.query;
 
     connection.query("SELECT step FROM steps WHERE category = ?",
         [category], (err, rows) => {
@@ -14,7 +14,7 @@ module.exports = (req, res) => {
                 // Return data to the client if success
                 return res.json({
                     success: true,
-                    data: rows[0],
+                    data: rows[0] && rows[0].step,
                     error: null,
                 });
             }
