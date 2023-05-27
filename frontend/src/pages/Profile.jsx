@@ -42,29 +42,18 @@ function Profile() {
   }, []);
 
   return (
-    <div class="profileBG">
-      <Box sx={{ backgroundColor: '#8FBDD3' }}>
+    <>
+    <Box class="profileBG">
+      
         <Box sx={{ backgroundColor: "#2C2639" }}>
           <Navbar />
         </Box>
-
+        
         <Grid container>
           <Grid item xs={12} sm={4}>
             <div className="UserInform">
-              <Box sx={{ height: "100vh" }}>
-                {/* <Box
-                sx={{
-                  position: "relative",
-                  backgroundImage: {profileUser.profile_picture},
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  height: "40vh",
-                  width: "40vh",
-                  borderRadius: "50%",
-                  margin: "auto",
-                  marginTop: "70px",
-                }}
-              ></Box> */}
+              <Box sx={{ height: "100vh",marginLeft: '50px' }}>
+    
                 <div className="ProfileBorder">
                   <Box
                     class="ProfilePagePicture"
@@ -244,77 +233,21 @@ function Profile() {
                 position: "relative",
               }}
             >
-              <Box sx={{ padding: "30px" }}>
+              <Box sx={{ padding: "30px" , marginBottom: '50px'}}>
                 <CardProfile />
               </Box>
 
-            <Box
-              sx={{
-                position: "absolute",
-                bottom: "10px",
-                right: "10px",
-              }}
-            >
-              <Button
-                variant="outlined"
-                color="primary"
-                sx={{ backgroundColor: "white", right: "10px" }}
-              >
-                Edit
-              </Button>
-              <Button
-                variant="outlined"
-                color="secondary"
-                sx={{ backgroundColor: "white" }}
-              >
-                Delete
-              </Button>
-            </Box>
-          </Box>
-
-            <Box
-              sx={{
-
-                width: "90%",
-                height: "60vh",
-                margin: "auto",
-                marginTop: "30px",
-                marginBottom: "50px",
-                borderRadius: "20px",
-                position: "relative",
-              }}
-            >
-              <Box sx={{ padding: "30px" }}>
+              <Box sx={{ padding: "30px" , marginBottom: '50px'}}>
                 <CardProfile />
               </Box>
 
-            <Box
-              sx={{
-                position: "absolute",
-                bottom: "10px",
-                right: "10px",
-              }}
-            >
-              <Button
-                variant="outlined"
-                color="primary"
-                sx={{ backgroundColor: "white", right: "10px" }}
-              >
-                Edit
-              </Button>
-              <Button
-                variant="outlined"
-                color="secondary"
-                sx={{ backgroundColor: "white" }}
-              >
-                Delete
-              </Button>
-            </Box>
+            
           </Box>
         </Grid>
       </Grid>
-      </Box>
-    </div>
+      
+    </Box>
+    </>
   );
 }
 
