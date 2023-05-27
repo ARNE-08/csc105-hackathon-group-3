@@ -49,10 +49,10 @@ function Home() {
               px: 2,
             }}
           >
-            <Typography variant="h2" component="div" className="Hometext title">
+            <Typography variant="h2" component="div" className="Hometext title header">
               Join Us in Creating a Greener Future!
             </Typography>
-            <Typography variant="body1" component="div" className="Hometext">
+            <Typography variant="body1" component="div" className="Hometext header">
               Welcome to our website dedicated to waste separation and environmental consciousness. We invite you to become an active participant in building a sustainable future by practicing waste separation in your daily life.
             </Typography>
             <Box sx={{ marginTop: "10px" }}>
