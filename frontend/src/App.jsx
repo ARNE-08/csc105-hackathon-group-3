@@ -9,7 +9,7 @@ import Profile from './pages/Profile'
 import MultipleSelect from './components/MultipleSelect'
 import Error from './pages/Error'
 import SnackBarMessage from '../src/share/SnackBarMessage'
-
+import Register from './components/Register'
 
 function App() {
 	const [status, setStatus] = useState('');
@@ -49,6 +49,7 @@ function App() {
 					<Home />
 					<MultipleSelect />
 					<CalEvent />
+					<Register />
 				</div>
 			) : null}
 		</GlobalContext.Provider >
