@@ -33,7 +33,9 @@ function Login({ setIsLogin }) {
       console.log(response.data.success)
       // console.log(response.data.success)
       if (response.data.success) {
-        setUser(true);
+        setUser(response.data.user);
+        // console.log(user)
+        // console.log(response.data.user)
         setStatus({
           msg: 'Login successful',
           severity: 'success'

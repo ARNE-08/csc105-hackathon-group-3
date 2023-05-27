@@ -13,7 +13,7 @@ import Register from './components/Register'
 
 function App() {
 	const [status, setStatus] = useState('');
-	const [user, setUser] = useState(false);
+	const [user, setUser] = useState([]);
 	const [appear, setAppear] = useState(false);
 	const generatekey = () => {
 		return Math.random();
