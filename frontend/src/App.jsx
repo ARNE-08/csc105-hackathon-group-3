@@ -2,6 +2,7 @@ import { useState, useMemo } from 'react'
 import './App.css'
 import { Route, Routes, } from 'react-router-dom'
 import GlobalContext from "../src/share/GlobalContext"
+import Home from './pages/Home'
 
 function App() {
 	const [status, setStatus] = useState('');
@@ -24,7 +25,7 @@ function App() {
 	return (
 		<GlobalContext.Provider value={globalContextValue}>
 			<Routes>
-				{/* <Route exect path="/" element={<SplashScreen />} /> */}
+				<Route exect path="/" element={<Home />} />
 			</Routes>
 
 			{status ? (
