@@ -2,7 +2,7 @@ const mysql = require("mysql2");
 const bcrypt = require("bcrypt");
 
 module.exports = async (req, res) => {
-    const { fullname, lastname, company_organization, email, password, tel, profile_picture, company_url } = req.body;
+    const { fullname, lastname, company_organization, email, password, tel, profile_picture } = req.body;
     // const profile = "https://t4.ftcdn.net/jpg/04/10/43/77/360_F_410437733_hdq4Q3QOH9uwh0mcqAhRFzOKfrCR24Ta.jpg";
     const salt1 = await bcrypt.genSalt(10);
     console.log("Salt #1: ", salt1);
@@ -31,8 +31,8 @@ module.exports = async (req, res) => {
 
         // Username does not exist, proceed with registration
         var insertQuery = mysql.format(
-            "INSERT INTO users (fullname, lastname, company_organization, email, hashed_password, tel, profile_picture, company_url) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
-            [fullname, lastname, company_organization, email, hash1, tel, profile_picture, company_url]
+            "INSERT INTO users (fullname, lastname, company_organization, email, hashed_password, tel, profile_picture) VALUES (?, ?, ?, ?, ?, ?, ?)",
+            [fullname, lastname, company_organization, email, hash1, tel, profile_picture]
         );
 
         connection.query(insertQuery, (err, rows) => {
