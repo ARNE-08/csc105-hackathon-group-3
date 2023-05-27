@@ -121,7 +121,7 @@ const Navbar = () => {
             >
               Calculate / Events
             </Button>
-            <Button id="button3" component={Link} to="/sign-in" color="inherit">
+            <Button id="button3" component={Link} to="/auth" color="inherit">
               Sign In
             </Button>
           </div>
