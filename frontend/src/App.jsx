@@ -3,9 +3,8 @@ import './App.css'
 import { Route, Routes, } from 'react-router-dom'
 import GlobalContext from "../src/share/GlobalContext"
 import Home from './pages/Home'
-import CalEvents from './pages/CalEvents'
 import MultipleSelect from './components/MultipleSelect'
-import CalEvents from './pages/CalEvents'
+import CalEvent from './pages/CalEvents'
 import Error from './pages/Error'
 
 
