@@ -1,6 +1,24 @@
-.Hometext.title{
+.Hometext.title {
     font-weight: 600;
 }
-.Hometext{
+
+.Hometext {
     font-family: 'Poppins', sans-serif;
 }
+
+.prepStep {
+    font-family: 'Poppins', sans-serif;
+}
+
+.stepDisplay {
+    display: flex;
+}
+
+/* #right-side {
+    float: right;
+}
+
+#left-side {
+    float: left;
+} */
+
