@@ -148,7 +148,7 @@ function CalcuForm() {
 				<Typography variant="h4" display={"flex"} sx={{ fontWeight: "bold", color: "black" }} >Let's calculate our Trash!</Typography>
 
 			<Box bgcolor={"#8FBDD3"} sx={{marginBottom: "20px", borderRadius: "10px", height: "50px", width: "50%", marginTop: "30px" }} display={"flex"} alignItems={"center"} justifyContent={"center"} >
-				<Typography variant="body-1" display={"flex"} sx={{ fontWeight: "bold", color: "white" }} >Total Price: ฿{totalPrice.toFixed(2)}</Typography>
+				<Typography variant="body-1" display={"flex"} sx={{ fontFamily: "'Poppins', sans-serif", fontWeight: "bold", color: "white" }} >Total Price: ฿{totalPrice.toFixed(2)}</Typography>
 			</Box>
 			{/* 1.) */}
 			<Box bgcolor={"#8FD3C5"} sx={{marginBottom: "20px", borderRadius: "10px", height: "50px" }} display={"flex"} alignItems={"center"} >

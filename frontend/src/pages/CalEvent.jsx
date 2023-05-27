@@ -3,7 +3,6 @@ import { Typography, Box, Grid, Tab, Tabs, } from '@mui/material'
 import CalcuForm from '../components/CalcuForm'
 import { useState, useEffect, useContext } from 'react'
 import GlobalContext from "../share/GlobalContext"
-import CardJudge from "../components/CardJudge"
 import CardLocation from "../components/CardLocation"
 
 function CalEvent() {
