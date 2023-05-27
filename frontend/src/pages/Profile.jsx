@@ -88,21 +88,6 @@ function Profile() {
                       <Typography
                         sx={{ fontFamily: "'Poppins', sans-serif" }}
                       >{profileUser.fullname}</Typography>
-                      {/* <input
-                    type="text"
-                    style={{
-                      border: "none",
-                      borderBottom: "2px solid white",
-                      width: "100%",
-                      height: "30px",
-                      fontSize: "20px",
-                      fontWeight: "600",
-                      color: "black",
-                      outline: "none",
-                      marginBottom: "10px",
-                      backgroundColor: "#8FBDD3",
-                    }}
-                  /> */}
                     </Typography>
 
                     <Typography
@@ -117,22 +102,6 @@ function Profile() {
                       <Typography
                         sx={{ fontFamily: "'Poppins', sans-serif" }}
                       >{profileUser.lastname}</Typography>
-
-                      {/* <input
-                    type="text"
-                    style={{
-                      border: "none",
-                      borderBottom: "2px solid white",
-                      width: "100%",
-                      height: "30px",
-                      fontSize: "20px",
-                      fontWeight: "600",
-                      color: "black",
-                      outline: "none",
-                      marginBottom: "10px",
-                      backgroundColor: "#8FBDD3",
-                    }}
-                  /> */}
                     </Typography>
 
                     <Typography
