@@ -1,10 +1,18 @@
 import * as React from 'react';
+import { Button } from '@mui/material'
 import { useTheme } from '@mui/material/styles';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
+
+import { AxiosError } from "axios"
+import Axios from '../share/AxiosInstance'
+import Cookies from "js-cookie"
+import GlobalContext from '../share/GlobalContext';
+import StepContext from '../share/StepContext';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -17,7 +25,7 @@ const MenuProps = {
   },
 };
 
-const wastes = ['paper', 'steel', 'glass', 'glass', 'plastic'];
+const wastes = ['paper', 'steel', 'glass', 'plastic'];
 
 function getStyles(name, personName, theme) {
   return {
@@ -31,12 +39,49 @@ function getStyles(name, personName, theme) {
 export default function MultipleSelect() {
   const theme = useTheme();
   const [personName, setPersonName] = React.useState('');
+  const {status, setStatus} = React.useContext(GlobalContext);
+  const {steps, setSteps} = React.useContext(StepContext);
+  const {setWaste} = React.useContext(StepContext);
 
-  const handleChange = (event) => {
-    const {
-      target: { value },
-    } = event;
-    setPersonName(value);
+  // console.log(personName)
+  const handleSelect = async (selectedValue) => {
+    try {
+      const userToken = Cookies.get('UserToken');
+      const response = await Axios.get('/step', {
+        params: {
+          category: selectedValue,
+        },
+        headers: { Authorization: `Bearer ${userToken}` },
+      });
+      if (response.data.success) {
+        setSteps(response.data.data);
+      } else {
+        setStatus({
+          msg: response.data.error,
+          severity: 'error',
+        });
+      }
+    } catch (error) {
+      if (error instanceof AxiosError) {
+        if (error.response) {
+          return setStatus({
+            msg: error.response.data.error,
+            severity: 'error',
+          });
+        }
+      }
+      return setStatus({
+        msg: error.message,
+        severity: 'error',
+      });
+    }
+  };
+
+  const handleSelectChange = (e) => {
+    const selectedValue = e.target.value;
+    setPersonName(selectedValue);
+    setWaste(selectedValue)
+    handleSelect(selectedValue);
   };
 
   return (
@@ -47,7 +92,7 @@ export default function MultipleSelect() {
           labelId="demo-multiple-name-label"
           id="demo-multiple-name"
           value={personName}
-          onChange={handleChange}
+          onChange={handleSelectChange}
           input={
             <OutlinedInput
               label="Name"
@@ -72,6 +117,12 @@ export default function MultipleSelect() {
           ))}
         </Select>
       </FormControl>
+
+      {/* <Button sx={{ height: "70px", width: "70px", padding: "0px" }}>
+        <div class="nextIcon">
+          <ArrowCircleRightIcon />
+        </div>
+      </Button> */}
     </div>
   );
 }
