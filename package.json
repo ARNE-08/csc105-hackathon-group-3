@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "@mui/x-date-pickers": "^6.5.0",
-    "js-cookie": "^3.0.5"
-  }
-}
