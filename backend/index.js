@@ -41,6 +41,11 @@ app.post("/register", require("./route/Register"));
 app.get("/profile", require("./route/GetProfile"));
 //Get step for home page
 app.get("/step", require("./route/GetStep"));
+//CRUD event
+app.post("/addEvent", require("./route/AddEvent"));
+app.get("/event", require("./route/GetEvent"));
+app.patch("/editEvent", require("./route/EditEvent"));
+app.delete("/deleteEvent", require("./route/DeleteEvent"));
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
