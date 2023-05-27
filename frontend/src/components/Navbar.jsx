@@ -42,16 +42,6 @@ const Navbar = ({ isAuthenticated, accountName }) => {
       sx={{ backgroundColor: "transparent", boxShadow: "none" }}
     >
       <Toolbar sx={{ backgroundColor: "transparent" }}>
-        {/* <Box
-          component="img"
-          sx={{
-            width: 306,
-            marginTop: "150px",
-            display: { xs: "inline-block", md: "none" },
-          }}
-          alt="Logo"
-          src="../assets/Logo.png"
-        /> */}
         <Typography
           variant="h6"
           component="div"
@@ -93,7 +83,7 @@ const Navbar = ({ isAuthenticated, accountName }) => {
                   to="/"
                   color="inherit"
                   onClick={handleDrawerToggle}
-                  sx={{ width: "100%" }} // Set the width to 100%
+                  sx={{ width: "100%" }}
                 >
                   Home
                 </Button>
@@ -103,20 +93,28 @@ const Navbar = ({ isAuthenticated, accountName }) => {
                   to="/cal-event"
                   color="inherit"
                   onClick={handleDrawerToggle}
-                  sx={{ width: "100%" }} // Set the width to 100%
+                  sx={{ width: "100%" }}
                 >
                   Calculate / Events
                 </Button>
                 {isAuthorize ? (
                   <div>
+                    <Button
+                      id="button4D"
+                      component={Link}
+                      to="/profile"
+                      color="inherit"
+                      onClick={handleDrawerToggle}
+                      sx={{ width: "100%" }}
+                    >
+                      Profile
+                    </Button>
                     <Typography>{user}</Typography>
                     <Button
                       id="button3"
-                      // component={Link}
-                      // to="/"
                       color="inherit"
                       onClick={handleLogout}
-                      sx={{ width: "100%" }}
+                      sx={{ width: "90%" }}
                     >
                       Log out
                     </Button>
@@ -128,17 +126,16 @@ const Navbar = ({ isAuthenticated, accountName }) => {
                     to="/auth"
                     color="inherit"
                     onClick={handleDrawerToggle}
-                    sx={{ width: "100%" }}
+                    sx={{ width: "90%" }}
                   >
                     Sign in
                   </Button>
                 )}
-
               </div>
             </Drawer>
           </>
         ) : (
-          <div>
+          <div style={{ display: "flex", alignItems: "center" }}>
             <Button id="button1" component={Link} to="/" color="inherit">
               Home
             </Button>
@@ -151,15 +148,22 @@ const Navbar = ({ isAuthenticated, accountName }) => {
               Calculate / Events
             </Button>
             {isAuthorize ? (
-              <div>
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <Button
+                  id="button4"
+                  component={Link}
+                  to="/profile"
+                  color="inherit"
+                  sx={{ marginRight: "10px" }}
+                >
+                  Profile
+                </Button>
                 <Typography>{user}</Typography>
                 <Button
                   id="button3"
-                  // component={Link}
-                  // to="/"
                   color="inherit"
-                  onClick={handleLogout()}
-                  sx={{ width: "100%" }}
+                  onClick={handleLogout}
+                  sx={{ marginLeft: "10px" }}
                 >
                   Log out
                 </Button>
@@ -170,8 +174,7 @@ const Navbar = ({ isAuthenticated, accountName }) => {
                 component={Link}
                 to="/auth"
                 color="inherit"
-                onClick={(e) => {setIsAuthorize(false), handleLogout}}
-                sx={{ width: "100%" }}
+                sx={{ marginLeft: "10px" }}
               >
                 Sign in
               </Button>
@@ -179,7 +182,7 @@ const Navbar = ({ isAuthenticated, accountName }) => {
           </div>
         )}
       </Toolbar>
-    </AppBar >
+    </AppBar>
   );
 };
 
