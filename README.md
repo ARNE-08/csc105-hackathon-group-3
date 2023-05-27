@@ -1,4 +1,4 @@
-# csc105-hackathon-group-3 Uwu
+# csc105-hackathon-group-3 
 
 
 ## Always make your local-main up to date
