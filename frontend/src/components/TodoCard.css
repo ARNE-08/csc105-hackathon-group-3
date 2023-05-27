@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Amethysta&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Coiny&display=swap');
+
+.Todocard {
+    background-color: white;
+    border-radius: 30px;
+    height: 75px;
+    width: 710px;
+    border: 3px solid #FFDEB4;
+    overflow: hidden;
+    margin-bottom: 10px;
+
+    position: relative;
+}
+
+.Todocard1 {
+    background-color: white;
+    border-radius: 30px;
+    height: 75px;
+    width: 100%;
+    border: 3px solid #FFDEB4;
+    overflow: hidden;
+    margin-bottom: 10px;
+
+    position: relative;
+}
+
+.Todocard2 {
+    background-color: white;
+    border-radius: 30px;
+    height: 75px;
+    width: 100%;
+    border: 3px solid #FFDEB4;
+    overflow: hidden;
+    margin-bottom: 10px;
+
+    position: relative;
+}
+
+.todoname {
+    font-family: 'Amethysta', serif;
+    font-size: 1.2em;
+    position: absolute;
+    top: 5px;
+    left: 80px;
+}
+
+.deletebut {
+    background: #B17F3F;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    right: -35px;
+    bottom: 34px;
+    z-index: 99;
+}
+
+.deletebut.delete {
+    background: #FFB4B4;
+    width: 100px;
+    height: 34px;
+    position: absolute;
+    right: -35px;
+    bottom: 0px;
+    z-index: 99;
+}
+
+.DateMargin {
+    margin-bottom: 10px;
+}
+
+.TimeMargin {
+    margin-bottom: 17px;
+}
+
+.editbutton {
+    background-color: #D78B8B;
+    color: white;
+    font-family: 'Coiny', cursive;
+    font-size: 1.3em;
+
+    border-radius: 50px;
+    border: none;
+    height: 40px;
+    width: 150px;
+
+    cursor: pointer;
+}
+
+.fontfam {
+    font-family: 'Coiny', cursive;
+}
+
+.fontfam.warn {
+    margin: 0px;
+    /* background-color: #B2A4FF;
+    width: 150px;
+    color: white;
+    border-radius: 20px; */
+}
+.mar {
+    font-size: 1.3em;
+    font-family: 'Amethysta', serif;
+}
+/* .EditPopup {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 200;
+
+    width: 100vw;
+    height: 100vh;
+} */
