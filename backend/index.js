@@ -23,7 +23,7 @@ const connection = mysql.createConnection({
     port: "3306",
     user: "group03",
     password: "207215217",
-    database: "MariaDB",
+    database: "group03",
 });
 
 connection.connect();
@@ -35,8 +35,8 @@ app.get("/", (req, res) => {
 });
 
 //marked
-// app.post("/login", require("./route/Login"));
-
+app.post("/login", require("./route/Login"));
+app.post("/register", require("./route/Register"));
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
