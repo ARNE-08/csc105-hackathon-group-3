@@ -88,8 +88,8 @@ function Login({ setIsLogin }) {
           sx={{
             width: '525px',
           }}
-          alt="Logo"
-          src="/src/assets/LOGO-plannerableStraight.png"
+        //   alt="Logo"
+        //   src="/src/assets/LOGO-plannerableStraight.png"
         />
       </Grid>
       <Grid item xs={12} display={{ xs: "block", sm: "none" }}>
@@ -98,8 +98,8 @@ function Login({ setIsLogin }) {
           sx={{
             width: '80%',
           }}
-          alt="Logo"
-          src="/src/assets/LOGO-plannerableStraight.png"
+        //   alt="Logo"
+        //   src="/src/assets/LOGO-plannerableStraight.png"
         />
       </Grid>
       <Grid item xs={12} justifyContent="center"
