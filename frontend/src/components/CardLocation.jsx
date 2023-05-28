@@ -10,6 +10,7 @@ function CardLocation({ name, location, contact, description, openAt, closeAt, d
 	return (
 		<Box>
 				<Card sx={{ maxHeight: 300, width: "250px" }}>
+				{/* <Card sx={{ maxHeight: 300, width: "250px" }}> */}
 					<CardMedia sx={{ height: 150 }} image={banner_url} title="banner" />
 					<div style={{overflow: 'auto', width: "250px", height: "300px" }}>
 					<CardContent sx={{ padding: "20px" }} >

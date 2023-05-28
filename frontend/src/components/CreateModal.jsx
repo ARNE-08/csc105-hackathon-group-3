@@ -8,7 +8,6 @@ import { AxiosError } from "axios";
 import Axios from '../share/AxiosInstance';
 
 
-// function CreateModal({ handleSubmit, name, location, contact, description, openAt, closeAt, dateStart, dateEnd, category, eventUrl, bannerUrl }) {
 function CreateModal({ handleSubmit }) {
 	const { name, setName } = React.useContext(CardContext)
 	const { nameError, setNameError } = React.useContext(CardContext)
@@ -26,8 +25,8 @@ function CreateModal({ handleSubmit }) {
 	const { dateEnd, setDateEnd } = React.useContext(CardContext)
 	const { category, setCategory } = React.useContext(CardContext)
 	const { categoryError, setCategoryError } = React.useContext(CardContext)
-	const { eventUrl, setEventUrl } = React.useContext(CardContext)
-	const { bannerUrl, setBannerUrl } = React.useContext(CardContext)
+	const { event_url, setEventUrl } = React.useContext(CardContext)
+	const { banner_url, setBannerUrl } = React.useContext(CardContext)
 
 	const [newLink, setNewLink] = useState({});
 
@@ -48,8 +47,8 @@ function CreateModal({ handleSubmit }) {
 				dateStart,
 				dateEnd,
 				category,
-				eventUrl,
-				bannerUrl,
+				event_url,
+				banner_url,
 			});
 			if (response.data.success) {
 				setStatus({
@@ -80,40 +79,40 @@ function CreateModal({ handleSubmit }) {
 	}
 	const validateForm = () => {
 		let isValid = true;
-	// 	if (!name) {
-	// 		setNameError('Name is required');
-	// 		isValid = false;
-	// 	}
-	// 	if (!location) {
-	// 		setLocationError('Location is required');
-	// 		isValid = false;
-	// 	}
-	// 	if (!contact) {
-	// 		setContactError('Contact is required');
-	// 		isValid = false;
-	// 	}
-	// 	if (!description) {
-	// 		setDescriptionError('Description is required');
-	// 		isValid = false;
-	// 	}
-	// 	if (!category) {
-	// 		setCategoryError('Category is required');
-	// 		isValid = false;
-	// 	}
-	// 	if (!deadline) {
-	// 		setStatus({
-	// 			msg: 'Deadline is required',
-	// 			severity: 'error'
-	// 		});
-	// 		isValid = false;
-	// 	}
-	// 	if (!todoTime) {
-	// 		setStatus({
-	// 			msg: 'Time is required',
-	// 			severity: 'error'
-	// 		});
-	// 		isValid = false;
-	// 	}
+		if (!name) {
+			setNameError('Name is required');
+			isValid = false;
+		}
+		if (!location) {
+			setLocationError('Location is required');
+			isValid = false;
+		}
+		if (!contact) {
+			setContactError('Contact is required');
+			isValid = false;
+		}
+		if (!description) {
+			setDescriptionError('Description is required');
+			isValid = false;
+		}
+		if (!category) {
+			setCategoryError('Category is required');
+			isValid = false;
+		}
+		if (!deadline) {
+			setStatus({
+				msg: 'Deadline is required',
+				severity: 'error'
+			});
+			isValid = false;
+		}
+		if (!todoTime) {
+			setStatus({
+				msg: 'Time is required',
+				severity: 'error'
+			});
+			isValid = false;
+		}
 		return isValid;
 	}
 
@@ -131,9 +130,9 @@ function CreateModal({ handleSubmit }) {
 	};
 
 	return (
-		<Box height={"450px"} marginBottom={2} bgcolor={"white"} borderRadius={"15px"} padding={1.5} display={"flex"} flexDirection={"column"} alignItems={"center"} justifyContent={"center"}  >
-			<Box width={"85%"} display={"flex"} flexDirection={"row"} alignItems={"center"}  >
-				<Typography sx={{ width: "30%", fontSize: "20px", marginLeft: "10%", marginBottom: "10px" }} >Create Location</Typography>
+		<Box height={"450px"} marginBottom={2} bgcolor={"white"} borderRadius={"15px"} padding={"10px"} display={"flex"} flexDirection={"column"} alignItems={"center"} justifyContent={"center"} boxShadow={"-2px 2px 1px rgba(0, 0, 0, 0.1)"}  >
+			<Box width={"85%"} display={"flex"} flexDirection={"row"} alignItems={"center"} justifyContent={"center"} >
+				<Typography sx={{fontWeight: "bold"}} >Create Location</Typography>
 				<TextField
 					required
 					size="small"
@@ -145,7 +144,7 @@ function CreateModal({ handleSubmit }) {
 					onChange={(e) => setName(e.target.value)}
 					error={nameError !== ""}
 					/>
-				 <Button variant='contained' onClick={submit}>Submit</Button>
+				 <Button variant='contained' onClick={submit} sx={{ left: "5px"}} >Submit</Button>
 			</Box>
 			<Box display={"flex"} flexDirection={"row"} alignItems={"center"} justifyContent={"center"} gap={2} >
 				<Box width={"40%"} height={"90%"}  >
@@ -196,7 +195,7 @@ function CreateModal({ handleSubmit }) {
 					<TextField
 						size="small"
 						type={"text"}
-						value={eventUrl}
+						value={event_url}
 						label="Event Url"
 						variant="outlined"
 						sx={{ width: "100%", height: "40px", marginBottom: "6px", backgroundColor: "white", borderRadius: "15px" }}
@@ -208,7 +207,7 @@ function CreateModal({ handleSubmit }) {
 					<TextField
 						size="small"
 						type={"text"}
-						value={bannerUrl}
+						value={banner_url}
 						label="Banner Url"
 						variant="outlined"
 						sx={{ width: "100%", height: "40px", marginBottom: "6px", backgroundColor: "white", borderRadius: "15px" }}

@@ -98,7 +98,7 @@ const Navbar = ({ isAuthenticated, accountName }) => {
                 <Button
                   id="button3D"
                   component={Link}
-                  to="/sign-in"
+                  to="/auth"
                   color="inherit"
                   onClick={handleDrawerToggle}
                   sx={{ width: "100%" }} // Set the width to 100%
