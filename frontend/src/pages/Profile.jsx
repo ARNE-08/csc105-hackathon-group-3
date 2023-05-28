@@ -12,6 +12,7 @@ import Axios from "../share/AxiosInstance";
 function Profile() {
   const { user, setUser } = useContext(GlobalContext)
   const { status, setStatus } = useContext(GlobalContext)
+  const [userCard, setUserCard] = useState([])
 
   const [profileUser, setProfileUser] = useState([])
 
@@ -19,10 +20,34 @@ function Profile() {
     Axios.get("/profile")
       .then((response) => {
         const responseData = response.data;
-        console.log(response.data)
+        // console.log(response.data)
         if (responseData.success) {
           setProfileUser(responseData.data);
           console.log(responseData.data)
+        }
+      })
+      .catch((error) => {
+        if (error instanceof AxiosError) {
+          if (error.response) {
+            return setStatus({
+              msg: error.response.data.error,
+              severity: 'error',
+            });
+          }
+        }
+        return setStatus({
+          msg: error.message,
+          severity: 'error',
+        });
+      });
+
+    Axios.get("/userEvent")
+      .then((response) => {
+        const responseData = response.data;
+        // console.log(response.data)
+        if (responseData.success) {
+          setUserCard(responseData.data);
+          // console.log(responseData.data)
         }
       })
       .catch((error) => {
@@ -43,17 +68,17 @@ function Profile() {
 
   return (
     <>
-    <Box class="profileBG">
-      
+      <Box class="profileBG">
+
         <Box sx={{ backgroundColor: "#2C2639" }}>
           <Navbar />
         </Box>
-        
+
         <Grid container>
           <Grid item xs={12} sm={4}>
             <div className="UserInform">
-              <Box sx={{ height: "100vh",marginLeft: '50px' }}>
-    
+              <Box sx={{ height: "100vh", marginLeft: '50px' }}>
+
                 <div className="ProfileBorder">
                   <Box
                     class="ProfilePagePicture"
@@ -77,21 +102,6 @@ function Profile() {
                       <Typography
                         sx={{ fontFamily: "'Poppins', sans-serif" }}
                       >{profileUser.fullname}</Typography>
-                      {/* <input
-                    type="text"
-                    style={{
-                      border: "none",
-                      borderBottom: "2px solid white",
-                      width: "100%",
-                      height: "30px",
-                      fontSize: "20px",
-                      fontWeight: "600",
-                      color: "black",
-                      outline: "none",
-                      marginBottom: "10px",
-                      backgroundColor: "#8FBDD3",
-                    }}
-                  /> */}
                     </Typography>
 
                     <Typography
@@ -106,22 +116,6 @@ function Profile() {
                       <Typography
                         sx={{ fontFamily: "'Poppins', sans-serif" }}
                       >{profileUser.lastname}</Typography>
-
-                      {/* <input
-                    type="text"
-                    style={{
-                      border: "none",
-                      borderBottom: "2px solid white",
-                      width: "100%",
-                      height: "30px",
-                      fontSize: "20px",
-                      fontWeight: "600",
-                      color: "black",
-                      outline: "none",
-                      marginBottom: "10px",
-                      backgroundColor: "#8FBDD3",
-                    }}
-                  /> */}
                     </Typography>
 
                     <Typography
@@ -137,22 +131,6 @@ function Profile() {
                         sx={{ fontFamily: "'Poppins', sans-serif" }}
                       >
                         {profileUser.company_organization}</Typography>
-
-                      {/* <input
-                    type="text"
-                    style={{
-                      border: "none",
-                      borderBottom: "2px solid white",
-                      width: "100%",
-                      height: "30px",
-                      fontSize: "20px",
-                      fontWeight: "600",
-                      color: "black",
-                      outline: "none",
-                      marginBottom: "10px",
-                      backgroundColor: "#8FBDD3",
-                    }}
-                  /> */}
                     </Typography>
 
                     <Typography
@@ -167,22 +145,6 @@ function Profile() {
                       <Typography
                         sx={{ fontFamily: "'Poppins', sans-serif" }}
                       >{profileUser.email}</Typography>
-
-                      {/* <input
-                    type="text"
-                    style={{
-                      border: "none",
-                      borderBottom: "2px solid white",
-                      width: "100%",
-                      height: "30px",
-                      fontSize: "20px",
-                      fontWeight: "600",
-                      color: "black",
-                      outline: "none",
-                      marginBottom: "10px",
-                      backgroundColor: "#8FBDD3",
-                    }}
-                  /> */}
                     </Typography>
 
                     <Typography
@@ -198,22 +160,6 @@ function Profile() {
                       <Typography
                         sx={{ fontFamily: "'Poppins', sans-serif" }}
                       >{profileUser.tel}</Typography>
-
-                      {/* <input
-                    type="text"
-                    style={{
-                      border: "none",
-                      borderBottom: "2px solid white",
-                      width: "100%",
-                      height: "30px",
-                      fontSize: "20px",
-                      fontWeight: "600",
-                      color: "black",
-                      outline: "none",
-                      marginBottom: "10px",
-                      backgroundColor: "#8FBDD3",
-                    }}
-                  /> */}
                     </Typography>
                   </Box>
                 </div>
@@ -233,20 +179,27 @@ function Profile() {
                 position: "relative",
               }}
             >
-              <Box sx={{ padding: "30px" , marginBottom: '50px'}}>
+              {userCard.map((event) => (
+                <Box sx={{ padding: "30px", marginBottom: '50px' }}>
+                  <CardProfile id={event.id} name={event.name} location={event.location} contact={event.contact} description={event.description} 
+                  openAt={event.openAt} closeAt={event.closeAt} date_start={event.date_start} date_end={event.date_end} event_url={event.event_url} 
+                  banner_url={event.banner_url} setUserCard={setUserCard}/>
+                </Box>
+              ))}
+              {/* <Box sx={{ padding: "30px", marginBottom: '50px' }}>
                 <CardProfile />
               </Box>
 
-              <Box sx={{ padding: "30px" , marginBottom: '50px'}}>
+              <Box sx={{ padding: "30px", marginBottom: '50px' }}>
                 <CardProfile />
-              </Box>
+              </Box> */}
 
-            
-          </Box>
+
+            </Box>
+          </Grid>
         </Grid>
-      </Grid>
-      
-    </Box>
+
+      </Box>
     </>
   );
 }

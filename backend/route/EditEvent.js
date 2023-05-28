@@ -3,14 +3,19 @@ var jwt = require("jsonwebtoken");
 
 module.exports = (req, res) => {
     const token = req.cookies.user;
-    const { id, name, location, contact, description, openAt, closeAt, date_start, date_end, category, event_url, banner_url } = req.body;
+    // const { id, name, location, contact, description, openAt, closeAt, date_start, date_end, category, event_url, banner_url } = req.body;
+    const { id, location, contact, event_url } = req.body;
 
     var decoded = jwt.verify(token, "ZJGX1QL7ri6BGJWj3t");
     console.log(decoded);
 
+    // var sql = mysql.format(
+    //     "UPDATE locations SET name = ?, location = ?, contact = ?, description = ?, openAt = ?, closeAt = ?, date_start = ?, date_end = ?, category = ?, event_url = ?, banner_url = ? WHERE user_id = ? AND id = ?",
+    //     [name, location, contact, description, openAt, closeAt, date_start, date_end, category, event_url, banner_url, decoded.userId, id]
+    // );
     var sql = mysql.format(
-        "UPDATE locations SET name = ?, location = ?, contact = ?, description = ?, openAt = ?, closeAt = ?, date_start = ?, date_end = ?, category = ?, event_url = ?, banner_url = ? WHERE user_id = ? AND id = ?",
-        [name, location, contact, description, openAt, closeAt, date_start, date_end, category, event_url, banner_url, decoded.userId, id]
+        "UPDATE locations SET location = ?, contact = ?, event_url = ? WHERE user_id = ? AND id = ?",
+        [location, contact, event_url, decoded.userId, id]
     );
 
     connection.query(sql,
@@ -24,9 +29,12 @@ module.exports = (req, res) => {
                 });
             }
 
-            res.json({
-                success: true,
-                message: "update successfully",
-            });
+            else {
+                // console.log(err);
+                res.json({
+                    success: true,
+                    message: "update successfully",
+                });
+            }
         });
 };
