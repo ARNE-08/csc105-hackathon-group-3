@@ -7,7 +7,6 @@ module.exports = (req, res) => {
     // const status = "not complete";
 
     var decoded = jwt.verify(token, "ZJGX1QL7ri6BGJWj3t");
-    console.log(decoded);
 
     var sql = mysql.format(
         "INSERT INTO locations (user_id, name, location, contact, description, openAt, closeAt, date_start, date_end, category, event_url, banner_url) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",

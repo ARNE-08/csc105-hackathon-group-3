@@ -136,6 +136,7 @@ function CreateModal({ handleSubmit }) {
 					error={nameError !== ""}
 				/>
 				<Button variant='contained' onClick={submit} sx={{ left: "5px" }} >Submit</Button>
+				<Button variant='contained' onClick={resetAndClose} sx={{ left: "5px", marginLeft: "5px" }} >Close</Button>
 			</Box>
 			<Box display={"flex"} flexDirection={"row"} alignItems={"center"} justifyContent={"center"} gap={2} >
 				<Box width={"40%"} height={"90%"}  >

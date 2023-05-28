@@ -5,7 +5,6 @@ module.exports = (req, res) => {
     const { id } = req.body;
 
     var decoded = jwt.verify(token, "ZJGX1QL7ri6BGJWj3t");
-    console.log(decoded);
 
     connection.query("DELETE from locations WHERE user_id = ? AND id = ?", [decoded.userId, id], (err, rows) => {
         // Check if cannot find the data in the database then return the error

@@ -36,6 +36,39 @@ function CalEvent() {
 	const [getCat, setGetCat] = useState('')
 	const [value, setValue] = React.useState(0);
 
+	useEffect(() => {
+		const userToken = Cookies.get('UserToken');
+		Axios.get("/getEvent", {
+			params: {
+				category: "sell"
+			},
+			headers: { Authorization: `Bearer ${userToken}` }
+		})
+			.then((response) => {
+				const responseData = response.data;
+				if (responseData.success) {
+					setCards(responseData.data);
+				} else {
+					// Handle unsuccessful response
+				}
+			})
+			.catch((error) => {
+				console.log("error")
+				if (error instanceof AxiosError) {
+					if (error.response) {
+						return setStatus({
+							msg: error.response.data.error,
+							severity: 'error',
+						});
+					}
+				}
+				return setStatus({
+					msg: error.message,
+					severity: 'error',
+				});
+			});
+	}, []);
+
 	//! to map CardLocation
 	const handleChange = (event, newValue) => {
 		setValue(newValue);
