@@ -10,7 +10,6 @@ function CardLocation({ name, location, contact, description, openAt, closeAt, d
 	return (
 		<Box>
 				<Card sx={{ maxHeight: 300, width: "250px" }}>
-				{/* <Card sx={{ maxHeight: 300, width: "250px" }}> */}
 					<CardMedia sx={{ height: 150 }} image={banner_url} title="banner" />
 					<div style={{overflow: 'auto', width: "250px", height: "300px" }}>
 					<CardContent sx={{ padding: "20px" }} >
@@ -47,8 +46,8 @@ function CardLocation({ name, location, contact, description, openAt, closeAt, d
 				</Card>
 
 			<Card sx={{ width: "250px", height: "60px", borderRadius: "0px", backgroundColor: "#2C2639", display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", borderBottomLeftRadius: "5px", borderBottomRightRadius: "5px" }}>
-				<Typography sx={{fontSize: "15px", color: "white", fontWeight: "bold"}} >{date_start}  |  {date_end} </Typography>
-				<Typography sx={{fontSize: "15px", color: "white", fontWeight: "bold"}} >{openAt}  -  {closeAt} </Typography>
+				<Typography sx={{fontSize: "12px", color: "white", fontWeight: "bold"}} >{date_start}  |  {date_end} </Typography>
+				<Typography sx={{fontSize: "12px", color: "white", fontWeight: "bold"}} >{openAt}  -  {closeAt} </Typography>
 			</Card>
 		</Box>
 	)
