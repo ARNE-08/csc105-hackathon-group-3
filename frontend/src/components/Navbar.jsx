@@ -30,35 +30,27 @@ const Navbar = ({ isAuthenticated, accountName }) => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    const userToken = Cookies.get('UserToken');
-    Axios.get("/me", {
-      headers: { Authorization: `Bearer ${userToken}` }
-    })
-      .then((response) => {
-        const responseData = response.data;
-        if (responseData.success) {
-          setUser(responseData.data)
-          console.log(user)
-        } else {
-          // Handle unsuccessful response
-        }
+    const userToken = Cookies.get("userToken");
+    if (userToken) {
+      Axios.get("/me", {
+        headers: { Authorization: `Bearer ${userToken}` },
       })
-      .catch((error) => {
-        console.log("error")
-        if (error instanceof AxiosError) {
-          if (error.response) {
-            return setStatus({
-              msg: error.response.data.error,
-              severity: 'error',
-            });
+        .then((response) => {
+          const responseData = response.data;
+          if (responseData.success) {
+            setUser(responseData.data);
+            setIsAuthorize(true);
+          } else {
+            // Handle unsuccessful response
           }
-        }
-        return setStatus({
-          msg: error.message,
-          severity: 'error',
+        })
+        .catch((error) => {
+          console.log("error", error);
+          // Handle error
         });
-      });
+    }
   }, []);
+  
 
 
   const handleDrawerToggle = () => {

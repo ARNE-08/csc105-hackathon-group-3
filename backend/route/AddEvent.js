@@ -2,7 +2,7 @@ const mysql = require("mysql2");
 var jwt = require("jsonwebtoken");
 
 module.exports = (req, res) => {
-    const token = req.cookies.user;
+    const token = req.cookies.userToken;
     const { name, location, contact, description, openAt, closeAt, date_start, date_end, category, event_url, banner_url } = req.body;
     // const status = "not complete";
 

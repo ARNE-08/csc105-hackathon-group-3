@@ -2,7 +2,7 @@ const mysql = require("mysql2");
 var jwt = require("jsonwebtoken");
 
 module.exports = (req, res) => {
-    const token = req.cookies.user;
+    const token = req.cookies.userToken;
     const { id, location, contact, event_url } = req.body;
 
     var decoded = jwt.verify(token, "ZJGX1QL7ri6BGJWj3t");

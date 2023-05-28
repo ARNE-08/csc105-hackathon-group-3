@@ -39,7 +39,7 @@ module.exports = (req, res) => {
                         "ZJGX1QL7ri6BGJWj3t",
                         { expiresIn: "1h" }
                     );
-                    res.cookie("user", token);
+                    res.cookie("userToken", token);
 
                     res.json({
                         success: true,
