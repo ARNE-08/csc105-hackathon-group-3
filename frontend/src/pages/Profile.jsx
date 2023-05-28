@@ -181,8 +181,9 @@ function Profile() {
             >
               {userCard.map((event) => (
                 <Box sx={{ padding: "30px", marginBottom: '50px' }}>
-                  <CardProfile name={event.name} location={event.location} contact={event.contact} description={event.description} 
-                  openAt={event.openAt} closeAt={event.closeAt} date_start={event.date_start} date_end={event.date_end} event_url={event.event_url} banner_url={event.banner_url}/>
+                  <CardProfile id={event.id} name={event.name} location={event.location} contact={event.contact} description={event.description} 
+                  openAt={event.openAt} closeAt={event.closeAt} date_start={event.date_start} date_end={event.date_end} event_url={event.event_url} 
+                  banner_url={event.banner_url} setUserCard={setUserCard}/>
                 </Box>
               ))}
               {/* <Box sx={{ padding: "30px", marginBottom: '50px' }}>

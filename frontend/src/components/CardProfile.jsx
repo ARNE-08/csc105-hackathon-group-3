@@ -3,7 +3,11 @@ import { Box, Typography, Button, CardActions, CardContent, Card, CardMedia } fr
 import { Link } from 'react-router-dom';
 import GlobalContext from '../share/GlobalContext';
 
-function CardProfile({ name, location, contact, description, openAt, closeAt, date_start, date_end, event_url, banner_url }) {
+import { AxiosError } from 'axios';
+import Axios from '../share/AxiosInstance';
+import Cookies from 'js-cookie';
+
+function CardProfile({ id, name, location, contact, description, openAt, closeAt, date_start, date_end, event_url, banner_url, setUserCard }) {
   const { status, setStatus } = useContext(GlobalContext);
   const [editMode, setEditMode] = useState(false);
   const [deleteConfirmation, setDeleteConfirmation] = useState(false);
@@ -16,14 +20,113 @@ function CardProfile({ name, location, contact, description, openAt, closeAt, da
     setEditMode(true);
   };
 
-  const handleSave = () => {
-    // Save the edited information here
-    setEditMode(false);
+  const handleSave = async () => {
+    if (!validateForm()) return;
+    try {
+      const userToken = Cookies.get('UserToken');
+      const response = await Axios.patch('/editEvent', {
+        id,
+        location: editedLocation,
+        contact: editedContact,
+        event_url: editedEventUrl
+      }, { headers: { Authorization: `Bearer ${userToken}` } });
+      if (response.data.success) {
+        setStatus({
+          msg: 'Update successfully',
+          severity: 'success'
+        });
+        setUserCard(prevCards => {
+          return prevCards.map(card => {
+            if (card.id === id) {
+              return {
+                ...card,
+                location: editedLocation,
+                contact: editedContact,
+                event_url: editedEventUrl
+              };
+            }
+            return card;
+          })
+        });
+
+        // console.log(location)
+        setEditMode(false);
+      }
+      else {
+        console.log(response.data.error)
+        setStatus({
+          msg: response.data.error,
+          severity: 'error'
+        });
+      }
+    } catch (e) {
+      if (e instanceof AxiosError)
+        if (e.response)
+          return setStatus({
+            msg: e.response.data.error,
+            severity: 'error',
+          });
+      return setStatus({
+        msg: e.message,
+        severity: 'error',
+      });
+    }
   };
 
-  const handleDelete = () => {
+  const validateForm = () => {
+    let isValid = true;
+    if (!editedLocation) {
+      setStatus({
+        msg: 'Location is required',
+        severity: 'error'
+      });
+      isValid = false;
+    }
+    if (!editedContact) {
+      setStatus({
+        msg: 'Contact is required',
+        severity: 'error'
+      });
+      isValid = false;
+    }
+    return isValid;
+  }
+
+  const handleDelete = async () => {
     if (deleteConfirmation) {
-      // Perform deletion logic here
+      try {
+        const userToken = Cookies.get('UserToken');
+        const response = await Axios.delete('/deleteEvent', {
+          headers: { Authorization: `Bearer ${userToken}` },
+          data: { id: id }
+        });
+        if (response.data.success) {
+          setStatus({
+            msg: 'Delete succesfully',
+            severity: 'success'
+          });
+          setUserCard((event) => event.filter((t) => t.id !== id));
+          setDeleteConfirmation(false);
+        }
+        else {
+          console.log(response.data.error)
+          setStatus({
+            msg: response.data.error,
+            severity: 'error'
+          });
+        }
+      } catch (e) {
+        if (e instanceof AxiosError)
+          if (e.response)
+            return setStatus({
+              msg: e.response.data.error,
+              severity: 'error',
+            });
+        return setStatus({
+          msg: e.message,
+          severity: 'error',
+        });
+      }
     } else {
       setDeleteConfirmation(true);
     }
