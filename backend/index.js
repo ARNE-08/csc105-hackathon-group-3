@@ -44,7 +44,7 @@ app.get("/userEvent", require("./route/GetUserEvent"));
 app.get("/step", require("./route/GetStep"));
 //CRUD event
 app.post("/addEvent", require("./route/AddEvent"));
-app.get("/event", require("./route/GetEvent"));
+app.get("/getEvent", require("./route/GetEvent"));
 app.patch("/editEvent", require("./route/EditEvent"));
 app.delete("/deleteEvent", require("./route/DeleteEvent"));
 

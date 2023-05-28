@@ -18,7 +18,7 @@ function Home() {
     setStep(steps.split('\n'));
   }, [steps]);
 
-  console.log(step);
+  // console.log(step);
 
   const stepContextValue = useMemo(() => {
     return {

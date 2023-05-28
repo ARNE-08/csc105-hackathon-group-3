@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   AppBar,
   Toolbar,
@@ -24,22 +24,30 @@ const Navbar = ({ isAuthenticated, accountName }) => {
   const { user, setUser } = useContext(GlobalContext)
   const { isAuthorize, setIsAuthorize } = useContext(GlobalContext)
 
-  console.log(user)
-  console.log(isAuthorize)
+  const navigate = useNavigate()
+
+  // console.log(user)
+  // console.log(isAuthorize)
 
   const handleDrawerToggle = () => {
     setIsDrawerOpen(!isDrawerOpen);
   };
 
+  const refreshPage = () => {
+    window.location.reload();
+  };
+
   const handleLogout = () => {
-    Cookies.remove('userToken');
-    // setIsAuthorize(false)
-  }
+    Cookies.remove("userToken");
+    setIsAuthorize(false);
+    navigate('/')
+    refreshPage()
+  };
 
   return (
     <AppBar
       position="static"
-      sx={{ backgroundColor: "#2C2639", boxShadow: "none" }}
+      sx={{ backgroundColor: "transparent", boxShadow: "none" }}
     >
       <Toolbar sx={{ backgroundColor: "transparent" }}>
         <Typography
