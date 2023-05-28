@@ -1,3 +1,8 @@
+.HomeBG {
+    background-color: #2C2539;
+    height: 180vh;
+}
+
 .Hometext.title {
     font-weight: 600;
 }
@@ -18,6 +23,8 @@
 .stepDisplay {
     display: flex;
 }
+
+
 
 /* #right-side {
     float: right;

@@ -41,7 +41,7 @@
     border-radius: 30px;
     overflow: hidden;
     border: 2px solid white;
-
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -50,6 +50,21 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
     position: relative;
+}
+@media screen and (max-width: 600px) {
+    .RegisBox {
+        background: rgb(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+        width: auto;
+        height: 675px;
+        border-radius: 30px;
+        overflow: hidden;
+        border: 2px solid white;  
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        padding: 50px;
+        margin-left: 200px;
+        position: relative;
+    }
 }
 
 .RegisBox1 {
