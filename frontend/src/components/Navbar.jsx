@@ -151,7 +151,7 @@ const Navbar = ({ isAuthenticated, accountName }) => {
                     >
                       Profile
                     </Button>
-                    <Typography>{user}</Typography>
+                    <Typography sx={{color: 'white' , textAlign: 'center' , padding: '10px', fontWeight: 'bold'}}>Account : {user}</Typography>
                     <Button
                       id="button3"
                       color="inherit"
@@ -200,7 +200,7 @@ const Navbar = ({ isAuthenticated, accountName }) => {
                 >
                   Profile
                 </Button>
-                <Typography>{user}</Typography>
+                <Typography sx={{fontWeight: 'bold'}}> Account : {user}</Typography>
                 <Button
                   id="button3"
                   color="inherit"
