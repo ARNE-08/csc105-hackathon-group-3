@@ -13,6 +13,8 @@ import Register from './components/Register'
 import Navbar from './components/Navbar'
 import Login from './components/Login'
 import CardProfile from './components/CardProfile'
+import CardLocation from './components/CardLocation'
+import CalcuForm from './components/CalcuForm'
 
 function App() {
 	const [status, setStatus] = useState('');
@@ -60,6 +62,10 @@ function App() {
 					<Navbar />
 					<Login />
 					<CardProfile />
+					<Auth />
+					<Table />
+					<CardLocation />
+					<CalcuForm />
 				</div>
 			) : null}
 		</GlobalContext.Provider >
