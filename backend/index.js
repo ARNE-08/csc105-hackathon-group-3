@@ -34,6 +34,8 @@ app.get("/", (req, res) => {
     res.send("Hello World!");
 });
 
+//me
+app.get("/me", require("./route/GetUser"));
 //Login and Register
 app.post("/login", require("./route/Login"));
 app.post("/register", require("./route/Register"));
