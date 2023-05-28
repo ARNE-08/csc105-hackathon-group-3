@@ -4,7 +4,6 @@ module.exports = (req, res) => {
     const token = req.cookies.user;
 
     var decoded = jwt.verify(token, "ZJGX1QL7ri6BGJWj3t");
-    console.log(decoded);
 
     connection.query("SELECT fullname, lastname, company_organization, email, tel, profile_picture FROM users WHERE id = ?",
         [decoded.userId], (err, rows) => {

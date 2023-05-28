@@ -31,7 +31,6 @@ function Login({ setIsLogin }) {
         email,
         password,
       });
-      console.log(response.data.success)
       // console.log(response.data.success)
       if (response.data.success) {
         setUser(response.data.data);
