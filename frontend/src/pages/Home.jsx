@@ -30,7 +30,7 @@ function Home() {
 
   return (
     <StepContext.Provider value={stepContextValue}>
-      <Box>
+      <Box className="HomeBG">
         <Box
           sx={{
             position: "relative",
