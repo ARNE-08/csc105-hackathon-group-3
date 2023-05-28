@@ -39,7 +39,7 @@ const Navbar = ({ isAuthenticated, accountName }) => {
   return (
     <AppBar
       position="static"
-      sx={{ backgroundColor: "transparent", boxShadow: "none" }}
+      sx={{ backgroundColor: "#2C2639", boxShadow: "none" }}
     >
       <Toolbar sx={{ backgroundColor: "transparent" }}>
         <Typography
@@ -48,6 +48,7 @@ const Navbar = ({ isAuthenticated, accountName }) => {
           sx={{ flexGrow: 1, fontWeight: "600" }}
           id="LogoName"
         >
+
           RecycleJourney
         </Typography>
         {isTabletMobile ? (
@@ -97,6 +98,7 @@ const Navbar = ({ isAuthenticated, accountName }) => {
                 >
                   Calculate / Events
                 </Button>
+
                 {isAuthorize ? (
                   <div>
                     <Button
