@@ -1,7 +1,7 @@
 const mysql = require("mysql2");
 
 module.exports = (req, res) => {
-    const { category } = req.body;
+    const { category } = req.query;
 
     var sql = mysql.format(
         "SELECT id, name, location, contact, description, openAt, closeAt, date_start, date_end, event_url, banner_url FROM locations WHERE category = ?",
