@@ -26,8 +26,8 @@ const Navbar = ({ isAuthenticated, accountName }) => {
 
   const navigate = useNavigate()
 
-  console.log(user)
-  console.log(isAuthorize)
+  // console.log(user)
+  // console.log(isAuthorize)
 
   const handleDrawerToggle = () => {
     setIsDrawerOpen(!isDrawerOpen);
@@ -47,7 +47,7 @@ const Navbar = ({ isAuthenticated, accountName }) => {
   return (
     <AppBar
       position="static"
-      sx={{ backgroundColor: "#2C2639", boxShadow: "none" }}
+      sx={{ backgroundColor: "transparent", boxShadow: "none" }}
     >
       <Toolbar sx={{ backgroundColor: "transparent" }}>
         <Typography

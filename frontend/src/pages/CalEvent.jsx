@@ -9,6 +9,7 @@ import CreateModal from '../components/CreateModal'
 import CardContext from '../share/CardContext'
 import { AxiosError } from "axios";
 import Axios from '../share/AxiosInstance';
+import Cookies from 'js-cookie'
 
 function CalEvent() {
 	const { user, setUser } = useContext(GlobalContext);
@@ -32,22 +33,55 @@ function CalEvent() {
 	const [event_url, setEventUrl] = useState('')
 	const [banner_url, setBannerUrl] = useState('')
 
-	//! useEffect
-	useEffect(() => {
-		Axios.get("/getEvent")
-			.then((response) => {
-				const responseData = response.data;
-				if (responseData.success) {
-					setCards(responseData.data);
-				} else {
-					// Handle unsuccessful response
-				}
-			})
-			.catch((error) => {
-				// Handle the error
-				console.error(error);
+	const [getCat, setGetCat] = useState('')
+	const [value, setValue] = React.useState(0);
+
+	//! to map CardLocation
+	const handleChange = (event, newValue) => {
+		setValue(newValue);
+		let newCat;
+		if (newValue === 0) {
+			newCat = "sell";
+		} else if (newValue === 1) {
+			newCat = "dono";
+		} else if (newValue === 2) {
+			newCat = "event";
+		}
+		handleGetEvent(newCat);
+	};
+
+	const handleGetEvent = async (category) => {
+		// const userToken = Cookies.get('UserToken');
+		try {
+			const response = await Axios.get('/getEvent', {
+				params: {
+					category: category,
+				},
+				// headers: { Authorization: `Bearer ${userToken}` },
 			});
-	}, []);
+			if (response.data.success) {
+				setCards(response.data.data);
+			} else {
+				setStatus({
+					msg: response.data.error,
+					severity: 'error',
+				});
+			}
+		} catch (error) {
+			if (error instanceof AxiosError) {
+				if (error.response) {
+					return setStatus({
+						msg: error.response.data.error,
+						severity: 'error',
+					});
+				}
+			}
+			return setStatus({
+				msg: error.message,
+				severity: 'error',
+			});
+		}
+	};
 
 	//! for Add new
 	const [showFirstBox, setShowFirstBox] = useState(true);
@@ -74,23 +108,16 @@ function CalEvent() {
 
 	const cardContextValue = useMemo(() => {
 		return {
-		  name, setName, nameError, location, setLocation, locationError, contact, setContact, contactError,
-		  description, setDescription, descriptionError,
-		  openAt, setOpenAt, closeAt, setCloseAt, dateStart, setDateStart, dateEnd, setDateEnd,
-		  category, setCategory, categoryError, event_url, setEventUrl, banner_url, setBannerUrl
+			name, setName, nameError, location, setLocation, locationError, contact, setContact, contactError,
+			description, setDescription, descriptionError,
+			openAt, setOpenAt, closeAt, setCloseAt, dateStart, setDateStart, dateEnd, setDateEnd,
+			category, setCategory, categoryError, event_url, setEventUrl, banner_url, setBannerUrl
 		};
-	  }, []);
-
-
-	//! to map CardLocation
-	const [value, setValue] = React.useState(0);
-	const handleChange = (event, newValue) => {
-		setValue(newValue);
-	};
+	}, []);
 
 	return (
-		<>
-			<Grid container bgcolor={"#8FBDD3"} spacing={2} sx={{ margin: "0 auto", display: "flex", justifyContent: "center", alignItem: "center", flexDirection: {xs: "column", md: "row"} }}  >
+		<CardContext.Provider value={cardContextValue}>
+			<Grid container bgcolor={"#8FBDD3"} spacing={2} sx={{ margin: "0 auto", display: "flex", justifyContent: "center", alignItem: "center", flexDirection: { xs: "column", md: "row" } }}  >
 				<Navbar />
 				<Grid item
 					style={{ backgroundColor: "rgba(255, 255, 255, 0.9)", borderRadius: 15 }}
@@ -148,34 +175,32 @@ function CalEvent() {
 						</Box>
 					)}
 
-					<CardContext.Provider value={cardContextValue}>
-						{showSecondBox && (
-							<CreateModal handleSubmit={handleSecondBoxSubmit} />
+					{showSecondBox && (
+						<CreateModal handleSubmit={handleSecondBoxSubmit} />
 					)}
-					</CardContext.Provider>
 
 					<div style={{ overflowX: 'auto', maxWidth: '100%' }}>
 						<div style={{ display: 'flex', gap: '10px' }}>
 
 
-					<Box width={"85%"} height={"100%"} display={"flex"}  gap={3} >
-						{cards.map((cards) => (
-							<CardLocation
-								key={cards.id} // Add key prop
-								name={cards.name}
-								location={cards.location}
-								contact={cards.contact}
-								description={cards.description}
-								openAt={cards.openAt}
-								closeAt={cards.closeAt}
-								date_start={cards.date_start}
-								date_end={cards. date_end}
-								event_url={cards.event_url}
-								banner_url={cards.banner_url}
-							/>
-						))}
+							<Box width={"85%"} height={"100%"} display={"flex"} gap={3} >
+								{cards.map((card) => (
+									<CardLocation
+										key={card.id} // Add key prop
+										name={card.name}
+										location={card.location}
+										contact={card.contact}
+										description={card.description}
+										openAt={card.openAt}
+										closeAt={card.closeAt}
+										date_start={card.date_start}
+										date_end={card.date_end}
+										event_url={card.event_url}
+										banner_url={card.banner_url}
+									/>
+								))}
 
-						{/* <CardLocation
+								{/* <CardLocation
 							name={"โครงการ “วน” บริษัท ทีบีพีไอ จำกัด"}
 							location={"http://bit.ly/37l4U2k"}
 							contact={"http://bit.ly/37l4U2k"}
@@ -224,12 +249,12 @@ function CalEvent() {
 							banner_url={"https://www.nostramap.com/wp-content/uploads/2022/11/1-300x300-3.webp"}
 						/> */}
 
-					</Box>
-					</div>
+							</Box>
+						</div>
 					</div>
 				</Grid>
 			</Grid>
-		</>
+		</CardContext.Provider>
 	)
 }
 

@@ -7,7 +7,7 @@ module.exports = (req, res) => {
     const { id, location, contact, event_url } = req.body;
 
     var decoded = jwt.verify(token, "ZJGX1QL7ri6BGJWj3t");
-    console.log(decoded);
+    // console.log(decoded);
 
     // var sql = mysql.format(
     //     "UPDATE locations SET name = ?, location = ?, contact = ?, description = ?, openAt = ?, closeAt = ?, date_start = ?, date_end = ?, category = ?, event_url = ?, banner_url = ? WHERE user_id = ? AND id = ?",

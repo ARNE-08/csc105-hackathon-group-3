@@ -4,7 +4,7 @@ module.exports = (req, res) => {
     const { category } = req.body;
 
     var sql = mysql.format(
-        "SELECT locations.*, u.fullname AS creator FROM locations INNER JOIN users u ON locations.user_id = u.id WHERE category = ?",
+        "SELECT id, name, location, contact, description, openAt, closeAt, date_start, date_end, event_url, banner_url FROM locations WHERE category = ?",
         [category]
     );
 
