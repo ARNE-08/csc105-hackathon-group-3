@@ -9,7 +9,7 @@ const port = 8000;
 
 app.use(
     cors({
-        origin: ['http://localhost:5174', 'http://localhost:5173'],
+        origin: ['http://localhost:5173'],
         credentials: true,
     })
 );
@@ -34,6 +34,8 @@ app.get("/", (req, res) => {
     res.send("Hello World!");
 });
 
+//me
+app.get("/me", require("./route/GetUser"));
 //Login and Register
 app.post("/login", require("./route/Login"));
 app.post("/register", require("./route/Register"));

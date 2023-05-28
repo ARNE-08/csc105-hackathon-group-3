@@ -8,6 +8,7 @@ import GlobalContext from "../share/GlobalContext";
 
 import { AxiosError } from "axios";
 import Axios from "../share/AxiosInstance";
+import Cookies from "js-cookie";
 
 function Profile() {
   const { user, setUser } = useContext(GlobalContext)
@@ -18,13 +19,37 @@ function Profile() {
   const [profileUser, setProfileUser] = useState([])
 
   useEffect(() => {
-    Axios.get("/profile")
+    // console.log(isAuthorize)
+    const userToken = Cookies.get("userToken");
+    if (userToken) {
+      Axios.get("/me", {
+        headers: { Authorization: `Bearer ${userToken}` },
+      })
+        .then((response) => {
+          const responseData = response.data;
+          if (responseData.success) {
+            setUser(responseData.data);
+            setIsAuthorize(true);
+          } else {
+            // Handle unsuccessful response
+          }
+        })
+        .catch((error) => {
+          console.log("error", error);
+          // Handle error
+        });
+    }
+
+    Axios.get("/profile", {
+      headers: { Authorization: `Bearer ${userToken}` },
+    })
       .then((response) => {
         const responseData = response.data;
         // console.log(response.data)
         if (responseData.success) {
           setProfileUser(responseData.data);
-          console.log(responseData.data)
+          // console.log(responseData.data)
+          // setIsAuthorize(true)
         }
       })
       .catch((error) => {
@@ -207,7 +232,7 @@ function Profile() {
           </div >
 
         ) : (
-          <Typography sx={{fontFamily: "'Poppins', sans-serif", fontSize: "2em", textAlign: "center"}}>You need to login before opening this page</Typography>
+          <Typography sx={{ fontFamily: "'Poppins', sans-serif", fontSize: "2em", textAlign: "center" }}>You need to login before opening this page</Typography>
         )
       }
     </div>

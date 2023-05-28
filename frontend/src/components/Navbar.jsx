@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
   AppBar,
@@ -17,6 +17,9 @@ import Logo from "../assets/RecycleJourney2.svg";
 import GlobalContext from "../share/GlobalContext";
 import Cookies from "js-cookie";
 
+import { AxiosError } from "axios";
+import Axios from "../share/AxiosInstance";
+
 const Navbar = ({ isAuthenticated, accountName }) => {
   const isTabletMobile = useMediaQuery("(max-width: 1075px)");
   const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
@@ -26,8 +29,29 @@ const Navbar = ({ isAuthenticated, accountName }) => {
 
   const navigate = useNavigate()
 
-  // console.log(user)
-  // console.log(isAuthorize)
+  useEffect(() => {
+    const userToken = Cookies.get("userToken");
+    if (userToken) {
+      Axios.get("/me", {
+        headers: { Authorization: `Bearer ${userToken}` },
+      })
+        .then((response) => {
+          const responseData = response.data;
+          if (responseData.success) {
+            setUser(responseData.data);
+            setIsAuthorize(true);
+          } else {
+            // Handle unsuccessful response
+          }
+        })
+        .catch((error) => {
+          console.log("error", error);
+          // Handle error
+        });
+    }
+  }, []);
+  
+
 
   const handleDrawerToggle = () => {
     setIsDrawerOpen(!isDrawerOpen);
