@@ -11,7 +11,7 @@ The Recycle Journey website's backend and frontend are both located in this repo
 - Create / Read / Update / Delete user's Information Card
 
 ## Database schema
-![Database schema](https://github.com/ARNE-08/Plannerable/assets/85389813/29caf374-9725-43f8-8e5c-f1b2e0697060)
+![RecycleJourneyDataSchema](https://github.com/ARNE-08/csc105-hackathon-group-3/assets/85389813/99331a97-a146-4bbf-b0f0-9c14d5087783)
 
 ## To run the frontend and backend in developing mode
 cd to Backend and Recycle Journey (for frontend) then run.
