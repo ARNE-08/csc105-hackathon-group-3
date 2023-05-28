@@ -144,7 +144,7 @@ function CalcuForm() {
 
 
 	return (
-		<Box width={"80%"} display={"flex"} flexDirection={"column"} padding={"10px"}>
+		<Box width={400} height={"100%"} display={"flex"} flexDirection={"column"} padding={"10px"}>
 				<Typography variant="h4" display={"flex"} sx={{ fontWeight: "bold", color: "black" }} >Let's calculate our Trash!</Typography>
 
 			<Box bgcolor={"#8FBDD3"} sx={{marginBottom: "20px", borderRadius: "10px", height: "50px", width: "50%", marginTop: "30px" }} display={"flex"} alignItems={"center"} justifyContent={"center"} >

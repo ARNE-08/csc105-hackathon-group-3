@@ -9,9 +9,10 @@ function CardLocation({ name, location, contact, description, openAt, closeAt, d
 	const { status, setStatus } = useContext(GlobalContext);
 	return (
 		<Box>
-			<div style={{ maxHeight: 300, overflow: 'auto' }}>
-				<Card sx={{ maxWidth: 250 }}>
+				<Card sx={{ maxHeight: 300, width: "250px" }}>
+				{/* <Card sx={{ maxHeight: 300, width: "250px" }}> */}
 					<CardMedia sx={{ height: 150 }} image={banner_url} title="banner" />
+					<div style={{overflow: 'auto', width: "250px", height: "300px" }}>
 					<CardContent sx={{ padding: "20px" }} >
 						<Typography gutterBottom variant="h6" component="div" sx={{fontWeight:"bold"}} >
 							{name}
@@ -38,16 +39,14 @@ function CardLocation({ name, location, contact, description, openAt, closeAt, d
 							</Link>
 						</Typography>
 						<hr />
-
 						<Typography color="text.secondary" sx={{ fontSize: "12px" }} >
 							{description}
 						</Typography>
 					</CardContent>
-
+					</div>
 				</Card>
 
-			</div>
-			<Card sx={{ maxWidth: 250, height: "50px", borderRadius: "0px", backgroundColor: "grey", display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+			<Card sx={{ width: "250px", height: "60px", borderRadius: "0px", backgroundColor: "#2C2639", display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", borderBottomLeftRadius: "5px", borderBottomRightRadius: "5px" }}>
 				<Typography sx={{fontSize: "15px", color: "white", fontWeight: "bold"}} >{date_start}  |  {date_end} </Typography>
 				<Typography sx={{fontSize: "15px", color: "white", fontWeight: "bold"}} >{openAt}  -  {closeAt} </Typography>
 			</Card>
